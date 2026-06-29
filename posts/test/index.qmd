@@ -1,0 +1,14 @@
+---
+title: "Quartoで個人サイトを作ってみた"
+author: "Koichi Igarashi"
+date: "2024-10-04"
+categories: [news]
+---
+
+テスト投稿
+
+RMarkdownで作っていたホームページをQuartoで書き直しました．
+
+せっかくなので，ブログページも作ってみました．備忘録的に使おうと思います．
+
+![](thumbnail.jpg)

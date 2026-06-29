@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 9a28de94-e977-4871-bcc5-dae1f1700edd
+      url: 'https://igapipy.quarto.pub/koichi-igarashi'

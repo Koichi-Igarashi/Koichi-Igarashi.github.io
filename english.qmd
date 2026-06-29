@@ -1,0 +1,32 @@
+---
+title: ""
+toc: false
+engine: knitr
+---
+
+##### This is the personal website of Koichi Igarashi, a graduate student at the Graduate School of Fisheries Sciences, Hokkaido University.
+
+::: {.profile-links}
+[![](images/logo/researchmap220.gif){.researchmap fig-alt="researchmap"}](https://researchmap.jp/igapijie)
+[![](images/logo/google-scholar-square-icon.png){.scholar fig-alt="Google Scholar"}](https://scholar.google.co.jp/citations?user=AEWO65QAAAAJ&hl=ja&oi=sra)
+[![](images/logo/researchgate-square.256x256.png){.researchgate fig-alt="ResearchGate"}](https://www.researchgate.net/profile/Koichi-Igarashi-3)
+[![](images/logo/orcid-square.png){.orcid fig-alt="ORCID"}](https://orcid.org/0000-0002-3537-9239)
+[![](images/logo/square-x-twitter-brands-solid.png){.x-twitter fig-alt="X"}](https://twitter.com/igapije)
+[![](images/logo/file-cv.png){.cv fig-alt="CV"}](https://drive.google.com/file/d/1XdL0A5Qe0u0uUpyLZfPBGsuuAM_cjCgj/view?usp=sharing)
+:::
+
+[Current affiliation:]{.profile-label} Laboratory of Marine Biology and Ecology, Graduate School of Fisheries Sciences, Hokkaido University
+
+[Contact:]{.profile-label} igapipy\[at\]gmail.com
+
+## Publications
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+pacman::p_load(tidyverse, scholar, reactable, yaml)
+source("R/publications.R")
+
+format_publications("AEWO65QAAAAJ") %>%
+  publication_table()
+```
+
+Latest update - `r format(Sys.time(), " %Y/%m/%d")`

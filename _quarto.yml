@@ -1,0 +1,30 @@
+project:
+  type: website
+  render:
+    - "*.qmd"
+    - "posts/test/index.qmd"
+    - "!posts/naturalhist/index.qmd"
+    - "!posts/teisai/index.qmd"
+
+website:
+  google-analytics: "G-HCK5G6DBKK"
+  title: "Koichi Igarashi"
+  page-footer: "Copyright 2025, Koichi Igarashi"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: achievements.qmd
+        text: Achievements
+      - href: posts.qmd
+        text: Posts
+    right:
+      - href: english.qmd
+        text: English
+
+format:
+  html:
+    theme: flatly
+    toc: true
+    css: styles.css
+    mainfont: Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans

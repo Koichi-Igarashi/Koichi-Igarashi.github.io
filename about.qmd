@@ -1,0 +1,46 @@
+---
+title: "Research"
+engine: knitr
+---
+以下に挙げる複数の領域とその複合領域に興味があります．
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+![捕食者ー被食者相互作用](images/web/isohera_debu.jpg){.img-fluid}
+
+### 捕食者ー被食者相互作用
+
+:::
+
+::: {.g-col-12 .g-col-md-6}
+![植物ー草食者相互作用](images/web/P5040498.jpg){.img-fluid}
+
+### 植物ー草食者相互作用
+
+:::
+
+::: {.g-col-12 .g-col-md-6}
+![極端気象](images/web/flood.jpg){.img-fluid}
+
+### 激しい気象イベントの進化・生態的帰結
+
+:::
+
+::: {.g-col-12 .g-col-md-6}
+![人間活動](images/web/P5010218.jpg){.img-fluid}
+
+### 人間活動が生物間相互作用に及ぼす影響
+
+:::
+
+::: {.g-col-12}
+![自然史](images/web/kattosi.jpg){.img-fluid}
+
+### 科学的自然史
+
+:::
+
+:::
+
+Latest update - `r format(Sys.time(), " %Y/%m/%d")`

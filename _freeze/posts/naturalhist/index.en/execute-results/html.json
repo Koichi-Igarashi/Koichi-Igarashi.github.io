@@ -1,0 +1,15 @@
+{
+  "hash": "26b668e80b51159fa9f6648a24180c7a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"生態学雑誌の自然史コーナー\"\nauthor: \"Koichi Igarashi\"\ndate: \"2025-8-15\"\ncategories: [tips]\ndraft: true\nengine: knitr\n---\n\n\n\n\nLatest update - 18 August, 2025\n\n私自身の備忘録として，自然史コーナーがある雑誌をまとめてみました． 随時更新予定．\n\n### Ecology: The Scientific Naturalist\n\nEcology誌の「The Scientific Naturalist」セクションの論文は，科学者と非科学者の両方に向けて書かれるべきである．動物，植物，菌類，微生物に関する投稿はすべて歓迎される．これらの論文には以下の要素が求められる．\n\n- 魅力的であまり知られていない生物，行動，プロセス，またはコミュニティ，食物網，生態系に関する自然現象を写真で紹介し，読者に「科学的な発見の瞬間」を感じさせ，自然史への関心を引き出すこと．\n\n- 生態学，進化学，保全学，フェノロジー，人間と環境の相互作用などの分野において，新しい発見や重要な視点を提示し，既存の理論に挑戦したり，新たな仮説を生んだり，未解決の疑問を提示すること．\n\n投稿は簡潔で，観察内容の科学的な興味深さや重要性を説明し，少なくとも1枚の鮮明で高解像度の写真や動画を含め，生物のライフサイクルや生態に関する興味深い，または未知の側面を記録する必要がある．写真・動画に加え，新しい仮説への道筋を示すデータを含む簡単な表や図も強く推奨される．原稿は既存の研究の単なるまとめではなく，何か明確に新しく重要な観察を示すべきである．一度限りの観察ではなく，後の論文につながる発見の発表に適している．\n\n### The American Naturalist: Natural History Miscellany\n\nNatural History Miscellanyとは，ある生物，個体群，群集の自然史の側面について，既存の理論に疑問を投げかけたり，新たな疑問や仮説を生み出したりする短い投稿（長さはノートに近い）である．この基準を満たすためには，その観察がなぜ科学的に興味深く，幅広い読者にとって重要なのか，また，調査対象の単一種やシステムを超えて，生物学的多様性の理解にどのように貢献するのかを説明する必要がある．著者は，オンライン写真，音声ファイル，ビデオ，その他の電子メディアを用いて原稿を説明することが推奨される．アブストラクトは150ワード以内である．詳しくは [The Natural History Miscellany Explained](https://www.amnat.org/announcements/CallNHM.html) を参照のこと．\n\n\n### ",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
