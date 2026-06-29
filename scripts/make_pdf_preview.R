@@ -1,4 +1,4 @@
-make_pdf_preview <- function(pdf, output = NULL, dpi = 150) {
+make_pdf_preview <- function(pdf, output = NULL, page = 1, dpi = 220) {
   pdftoppm <- Sys.which("pdftoppm")
   if (pdftoppm == "") {
     stop(
@@ -30,7 +30,7 @@ make_pdf_preview <- function(pdf, output = NULL, dpi = 150) {
     args = c(
       "-png",
       "-singlefile",
-      "-f", "1",
+      "-f", as.character(page),
       "-r", as.character(dpi),
       shQuote(pdf),
       shQuote(output)
@@ -56,9 +56,5 @@ make_pdf_preview <- function(pdf, output = NULL, dpi = 150) {
 # Then add both paths to data/publications_manual.yml or data/publications_metadata.yml:
 # pdf: "papers/tonic-immobility.pdf"
 # pdf_preview: "papers/tonic-immobility-preview.png"
-
-
-source("scripts/make_pdf_preview.R")
-make_pdf_preview("papers/JMBA_Igarashi_2024.pdf")
-
-
+# Example:
+# make_pdf_preview("papers/JMBA_Igarashi_2024.pdf")

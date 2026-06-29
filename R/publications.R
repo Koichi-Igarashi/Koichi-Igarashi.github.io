@@ -1,5 +1,5 @@
 empty_publications <- function() {
-  tibble(Year = integer(), Item = character(), Cites = character(), Sort = numeric())
+  tibble(Year = integer(), Item = character(), Cites = character(), Pdf = character(), Sort = numeric())
 }
 
 publication_key <- function(title) {
@@ -96,7 +96,7 @@ format_publication_assets <- function(pdf_url, pdf_preview) {
       paste0(
         "<a class='publication-pdf-card' href='", pdf_url, "' download>",
         "<img src='", pdf_preview, "' alt='PDF preview'>",
-        "<span>Download PDF</span>",
+        "<span class='publication-pdf-icon' aria-hidden='true'><i class='bi bi-download'></i></span>",
         "</a>"
       ),
       if_else(
@@ -158,8 +158,7 @@ format_scholar_records <- function(publications, metadata_path = "data/publicati
         str_replace_all("And", "and"),
       link = paste0("https://scholar.google.com/scholar?q=", URLencode(title)),
       details = format_publication_details(journal, issue_text, status),
-      assets = format_publication_assets(pdf_url, pdf_preview),
-      embed = format_publication_embed(pdf_url)
+      assets = format_publication_assets(pdf_url, pdf_preview)
     ) %>%
     transmute(
       Year = year,
@@ -167,11 +166,10 @@ format_scholar_records <- function(publications, metadata_path = "data/publicati
         "<div class='publication-item'>",
         author, ". <a href='", link, "' target='_blank'>", title, "</a>.",
         details,
-        assets,
-        embed,
         "</div>"
       ),
       Cites = as.character(cites),
+      Pdf = assets,
       Sort = year
     )
 }
@@ -227,7 +225,6 @@ format_manual_publications <- function(path = "data/publications_manual.yml") {
       ),
       details = format_publication_details(journal, issue_text, status),
       assets = format_publication_assets(pdf_url, pdf_preview),
-      embed = format_publication_embed(pdf_url),
       Sort = as.numeric(year) + 0.5
     ) %>%
     transmute(
@@ -236,11 +233,10 @@ format_manual_publications <- function(path = "data/publications_manual.yml") {
         "<div class='publication-item'>",
         author, ". ", title_text, ".",
         details,
-        assets,
-        embed,
         "</div>"
       ),
       Cites = "",
+      Pdf = assets,
       Sort = Sort
     )
 }
@@ -265,9 +261,22 @@ publication_table <- function(publications) {
       searchable = FALSE,
       pagination = FALSE,
       columns = list(
-        Year = colDef(maxWidth = 70),
-        Item = colDef(html = TRUE),
-        Cites = colDef(name = "Citations", align = "center", maxWidth = 95)
+        Year = colDef(
+          maxWidth = 82,
+          align = "left",
+          class = "publication-cell-middle publication-year-cell",
+          headerClass = "publication-year-header"
+        ),
+        Item = colDef(html = TRUE, minWidth = 480, maxWidth = 650, class = "publication-cell-middle"),
+        Cites = colDef(
+          name = "Citations",
+          align = "center",
+          minWidth = 95,
+          maxWidth = 110,
+          class = "publication-cell-center",
+          headerClass = "publication-nowrap"
+        ),
+        Pdf = colDef(name = "", html = TRUE, align = "center", maxWidth = 90, class = "publication-cell-center")
       ),
       style = list(fontSize = "18px")
     )

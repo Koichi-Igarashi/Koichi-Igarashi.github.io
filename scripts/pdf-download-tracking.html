@@ -1,0 +1,19 @@
+<script>
+document.addEventListener("click", function(event) {
+  const link = event.target.closest("a.publication-pdf-card[href$='.pdf']");
+  if (!link || typeof window.gtag !== "function") {
+    return;
+  }
+
+  const fileUrl = link.getAttribute("href");
+  const fileName = fileUrl.split("/").pop();
+
+  window.gtag("event", "pdf_download", {
+    event_category: "publication",
+    event_label: fileName,
+    file_name: fileName,
+    file_url: link.href,
+    transport_type: "beacon"
+  });
+});
+</script>

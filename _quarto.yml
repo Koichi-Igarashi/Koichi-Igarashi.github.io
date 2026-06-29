@@ -1,5 +1,7 @@
 project:
   type: website
+  resources:
+    - papers/
   render:
     - "*.qmd"
     - "posts/test/index.qmd"
@@ -27,4 +29,6 @@ format:
     theme: flatly
     toc: true
     css: styles.css
+    include-after-body:
+      - scripts/pdf-download-tracking.html
     mainfont: Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans
