@@ -154,46 +154,26 @@ body {
   text-decoration: none;
 }
 
-.publication-pdf-card {
-  border: 1px solid #d6d6d6;
-  border-radius: 4px;
-  display: inline-block;
-  padding: 2px;
-  position: relative;
-  text-decoration: none;
-  width: 72px;
-}
-
-.publication-pdf-card:hover {
-  border-color: #2c6f7e;
-  text-decoration: none;
-}
-
-.publication-pdf-card img {
-  aspect-ratio: 3 / 4;
-  border: 0;
-  display: block;
-  object-fit: cover;
-  width: 100%;
-}
-
-.publication-pdf-icon {
+.publication-pdf-link {
   align-items: center;
-  background: rgba(80, 80, 80, 0.9);
-  border: 1px solid #fff;
-  border-radius: 50%;
-  bottom: -6px;
-  color: #fff;
+  border-radius: 6px;
+  color: #c0392b;
   display: flex;
-  font-size: 0.8rem;
-  height: 22px;
+  font-size: 1.8rem;
+  height: 42px;
   justify-content: center;
   line-height: 1;
-  pointer-events: none;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 22px;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  width: 42px;
+}
+
+.publication-pdf-link:hover,
+.publication-pdf-link:focus-visible {
+  background: #f6e9e7;
+  color: #9f2f25;
+  text-decoration: none;
+  transform: translateY(-1px);
 }
 
 .publication-preview {

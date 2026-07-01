@@ -13,7 +13,6 @@
 #   status: Accepted, In press, Preprint, Submitted, etc.
 #   link: optional URL
 #   pdf: optional local PDF path, e.g. "papers/example.pdf"
-#   pdf_preview: optional image preview path, e.g. "papers/example-preview.png"
 #
 # Example:
 # - year: 2026
@@ -24,7 +23,6 @@
 #   status: "Accepted"
 #   link: ""
 #   pdf: "papers/example.pdf"
-#   pdf_preview: "papers/example-preview.png"
 - year: 2026
   author: "<b>K Igarashi</b>, S Wada"
   title: "Predator-specific deployment of defensive behaviors in the marine isopod Cleantiella isopus (Isopoda, Idoteidae): Arched posture against fish and escape against crabs"
@@ -33,4 +31,3 @@
   status: "Accepted"
   link: ""
   pdf: ""
-  pdf_preview: ""

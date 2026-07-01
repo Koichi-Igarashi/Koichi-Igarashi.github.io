@@ -34,7 +34,7 @@ merge_publication_metadata <- function(publications, metadata_path = "data/publi
     return(publications)
   }
 
-  optional_fields <- c("number", "volume", "issue", "pages", "status", "link", "pdf", "pdf_url", "pdf_preview")
+  optional_fields <- c("number", "volume", "issue", "pages", "status", "link", "pdf", "pdf_url")
   missing_fields <- setdiff(optional_fields, names(publications))
   publications[missing_fields] <- NA_character_
 
@@ -87,27 +87,18 @@ format_publication_details <- function(journal, issue_text, status) {
   )
 }
 
-format_publication_assets <- function(pdf_url, pdf_preview) {
+format_publication_assets <- function(pdf_url) {
   has_pdf <- pdf_url != ""
 
   paste0(
     if_else(
-      has_pdf & pdf_preview != "",
+      has_pdf,
       paste0(
-        "<a class='publication-pdf-card' href='", pdf_url, "' download>",
-        "<img src='", pdf_preview, "' alt='PDF preview'>",
-        "<span class='publication-pdf-icon' aria-hidden='true'><i class='bi bi-download'></i></span>",
+        "<a class='publication-pdf-link' href='", pdf_url, "' target='_blank' rel='noopener' aria-label='Open PDF' title='Open PDF'>",
+        "<i class='bi bi-filetype-pdf' aria-hidden='true'></i>",
         "</a>"
       ),
-      if_else(
-        has_pdf,
-        paste0(
-          "<div class='publication-actions'>",
-          "<a class='publication-download' href='", pdf_url, "' download>Download PDF</a>",
-          "</div>"
-        ),
-        ""
-      )
+      ""
     )
   )
 }
@@ -141,7 +132,6 @@ format_scholar_records <- function(publications, metadata_path = "data/publicati
       status = coalesce_field(., "status"),
       pdf_url = coalesce_field(., "pdf_url"),
       pdf_url = if_else(pdf_url == "", coalesce_field(., "pdf"), pdf_url),
-      pdf_preview = coalesce_field(., "pdf_preview"),
       issue_text = format_issue_text(.),
       author = str_to_title(author),
       author = author %>%
@@ -158,7 +148,7 @@ format_scholar_records <- function(publications, metadata_path = "data/publicati
         str_replace_all("And", "and"),
       link = paste0("https://scholar.google.com/scholar?q=", URLencode(title)),
       details = format_publication_details(journal, issue_text, status),
-      assets = format_publication_assets(pdf_url, pdf_preview)
+      assets = format_publication_assets(pdf_url)
     ) %>%
     transmute(
       Year = year,
@@ -216,7 +206,6 @@ format_manual_publications <- function(path = "data/publications_manual.yml") {
       status = coalesce_field(., "status"),
       pdf_url = coalesce_field(., "pdf_url"),
       pdf_url = if_else(pdf_url == "", coalesce_field(., "pdf"), pdf_url),
-      pdf_preview = coalesce_field(., "pdf_preview"),
       issue_text = format_issue_text(.),
       title_text = if_else(
         link == "",
@@ -224,7 +213,7 @@ format_manual_publications <- function(path = "data/publications_manual.yml") {
         paste0("<a href='", link, "' target='_blank'>", title, "</a>")
       ),
       details = format_publication_details(journal, issue_text, status),
-      assets = format_publication_assets(pdf_url, pdf_preview),
+      assets = format_publication_assets(pdf_url),
       Sort = as.numeric(year) + 0.5
     ) %>%
     transmute(
@@ -276,7 +265,7 @@ publication_table <- function(publications) {
           class = "publication-cell-center",
           headerClass = "publication-nowrap"
         ),
-        Pdf = colDef(name = "", html = TRUE, align = "center", maxWidth = 90, class = "publication-cell-center")
+        Pdf = colDef(name = "", html = TRUE, align = "center", maxWidth = 64, class = "publication-cell-center")
       ),
       style = list(fontSize = "18px")
     )

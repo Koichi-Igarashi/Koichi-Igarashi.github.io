@@ -10,14 +10,11 @@
 #   status: optional status text
 #   pdf: optional local PDF path, e.g. "papers/example.pdf"
 #   pdf_url: optional remote PDF URL
-#   pdf_preview: optional image preview path, e.g. "papers/example-preview.png"
 #
 # Example:
 # - title: "Example published paper title"
 #   number: "104(6), 887-895"
 #   pdf: "papers/example.pdf"
-#   pdf_preview: "papers/example-preview.png"
 - title: "Tonic immobility in a marine isopod: the effects of body size, sex, and colour morph"
   number: "104, e17"
   pdf: "papers/JMBA_Igarashi_2024.pdf"
-  pdf_preview: "papers/JMBA_Igarashi_2024-preview.png"
