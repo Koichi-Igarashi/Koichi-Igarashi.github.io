@@ -6,7 +6,7 @@ Built with Quarto and babelquarto; deployed to GitHub Pages by `.github/workflow
 ## Update
 
 - News, grants, awards, presentations: `data/cv.yml`
-- Publications: `data/publications.yml` (PDFs in `papers/` or external URLs); citation counts: `data/citations.yml`
+- Publications: `data/publications.yml` (PDFs in `papers/` or external URLs); citation counts and Scholar links: `data/citations.yml`, refreshed by running `Rscript scripts/update_citations.R` on your own computer and committing the file (Google Scholar blocks GitHub's servers, so builds there use the saved values)
 - Pages: `index.qmd`, `achievements/index.qmd` (English: `*.en.qmd`); menus: `_quarto-ja.yml`, `_quarto-en.yml`
 
 ## Build locally

@@ -3,7 +3,8 @@
 #   Rscript scripts/build.R           # production build (URLs from _quarto.yml)
 #   Rscript scripts/build.R --local   # build for local preview (see README.md)
 #
-# Steps: babelquarto renders the Japanese site (root) and the English site
+# Steps: citation counts are refreshed from Google Scholar (R/scholar.R),
+# babelquarto renders the Japanese site (root) and the English site
 # (en/), then scripts/postprocess_site.R adds canonical / hreflang / sitemap /
 # robots.txt and the language switch.
 
@@ -17,6 +18,10 @@ site_url <- sub("/$", "", site_url)
 # For local preview, links that babelquarto writes are root-relative so the
 # site can be served from http://localhost:PORT/ .
 render_url <- if (local_preview) "" else site_url
+
+# Latest citation counts from Google Scholar (keeps the saved ones if blocked)
+source("R/scholar.R")
+update_citations_file()
 
 options(babelquarto.quiet = TRUE)
 babelquarto::render_website(".", site_url = render_url, preview = FALSE)

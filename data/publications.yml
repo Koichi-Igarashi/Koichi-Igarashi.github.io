@@ -12,17 +12,19 @@
 #   journal:   journal name
 #   volume, issue, pages / article: shown as "volume(issue), pages"
 #   status:    e.g. "Accepted", "In press" (omit when published)
-#   doi:       DOI without "https://doi.org/" — the title links to it
-#   url:       landing page, used for the title link when there is no DOI
+#   doi:       DOI without "https://doi.org/" (linked under the citation;
+#              the title itself links to the paper on Google Scholar)
 #   pdf:       one or more PDF locations. Each item has `url` and an
 #              optional `label`. The first item gets the PDF icon; the rest
 #              are listed under the citation. `url` can be
 #                - a file in this repository, e.g. "papers/xxx.pdf"
 #                - any external URL (institutional repository, publisher,
 #                  ResearchGate, ...). PDFs do not have to be stored here.
-#   links:     other links (data, code, press release ...), same format
+#   data:      published data / code (Zenodo, GitHub, Dryad ...), same
+#              format; shown as a "Data & code" link under the PDF icon
+#   links:     other links (press release ...), listed under the citation
 #   scholar_title: title as written on Google Scholar, only if it differs
-#              (used by scripts/update_citations.R)
+#              (used to find citation counts and the Scholar page)
 #
 # Template:
 # - id: igarashi2027xxx
@@ -52,9 +54,8 @@ publications:
     pdf:
       - url: "papers/ZoolSci_Igarashi_2026.pdf"
         label: "Accepted manuscript"
-    links:
+    data:
       - url: "https://doi.org/10.5281/zenodo.18883199"
-        label: "Data & code (Zenodo)"
 
   - id: igarashi2024jmba
     year: 2024
@@ -67,5 +68,3 @@ publications:
     pdf:
       - url: "papers/JMBA_Igarashi_2024.pdf"
         label: "Accepted manuscript"
-      - url: "https://eprints.lib.hokudai.ac.jp/repo/huscap/all/93049/manuscript.pdf"
-        label: "HUSCAP"
