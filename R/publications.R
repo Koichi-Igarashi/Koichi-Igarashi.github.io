@@ -1,7 +1,8 @@
 # Publication list for the Achievements pages (Japanese and English).
 #
-# All data comes from data/publications.yml (and citation counts from
-# data/citations.yml), so both languages always show the same list.
+# All data comes from data/publications.yml (and citation counts and Google
+# Scholar links from data/citations.yml, refreshed at build time by
+# R/scholar.R), so both languages always show the same list.
 # Only base R, yaml, htmltools and reactable are used.
 
 publication_labels <- list(
@@ -10,6 +11,7 @@ publication_labels <- list(
     item = "Publication",
     citations = "Citations",
     open_pdf = "PDFを開く",
+    data = "Data & code",
     pdf = "PDF"
   ),
   en = list(
@@ -17,6 +19,7 @@ publication_labels <- list(
     item = "Publication",
     citations = "Citations",
     open_pdf = "Open PDF",
+    data = "Data & code",
     pdf = "PDF"
   )
 )
@@ -93,15 +96,16 @@ format_venue <- function(pub) {
   paste0(" <span class='publication-venue'>", escape_html(paste(parts, collapse = ", ")), ".</span>")
 }
 
-title_url <- function(pub) {
-  doi <- pub$doi %||% ""
-  if (doi != "") {
-    return(paste0("https://doi.org/", doi))
+# The title links to the paper's Google Scholar page (found at build time),
+# or to a Scholar search for the title when the page is not known yet.
+# The DOI is linked separately below the citation.
+title_url <- function(pub, scholar_urls = list()) {
+  url <- if (!is.null(pub$id)) scholar_urls[[pub$id]] else NULL
+  if (!is.null(url) && url != "") {
+    return(url)
   }
-  if ((pub$url %||% "") != "") {
-    return(pub$url)
-  }
-  paste0("https://scholar.google.com/scholar?q=", utils::URLencode(gsub("*", "", pub$title, fixed = TRUE), reserved = TRUE))
+  query <- gsub("*", "", pub$scholar_title %||% pub$title, fixed = TRUE)
+  paste0("https://scholar.google.com/scholar?q=", utils::URLencode(paste0('"', query, '"'), reserved = TRUE))
 }
 
 format_extra_links <- function(pub, root_prefix) {
@@ -148,11 +152,28 @@ format_pdf_icon <- function(pub, root_prefix, labels) {
   )
 }
 
-read_citation_counts <- function(path = "data/citations.yml") {
-  if (!file.exists(path)) {
-    return(list())
-  }
-  yaml::read_yaml(path)$counts %||% list()
+# "Data & code" links shown under the PDF icon (field `data`)
+format_data_links <- function(pub, root_prefix, labels) {
+  links <- vapply(normalise_links(pub$data), function(link) {
+    if (link$url == "") {
+      return("")
+    }
+    url <- resolve_url(link$url, root_prefix)
+    label <- if (link$label == "") labels$data else link$label
+    paste0(
+      "<a class='publication-data-link' href='", escape_html(url), "'", link_attributes(url),
+      " title='", escape_html(label), "'>",
+      "<i class='bi bi-database' aria-hidden='true'></i>",
+      "<span>", escape_html(label), "</span>",
+      "</a>"
+    )
+  }, character(1))
+  paste(links, collapse = "")
+}
+
+read_scholar_data <- function(path = "data/citations.yml") {
+  saved <- if (file.exists(path)) yaml::read_yaml(path) else list()
+  list(counts = saved$counts %||% list(), urls = saved$urls %||% list())
 }
 
 read_publications <- function(path = "data/publications.yml") {
@@ -172,7 +193,8 @@ format_publications <- function(
 
   data <- read_publications(path)
   pubs <- data$publications %||% list()
-  counts <- read_citation_counts(citations_path)
+  scholar <- read_scholar_data(citations_path)
+  counts <- scholar$counts
   highlight <- data$highlight %||% ""
 
   if (length(pubs) == 0) {
@@ -190,7 +212,7 @@ format_publications <- function(
       Item = paste0(
         "<div class='publication-item'>",
         format_authors(pub$authors, highlight), ". ",
-        "<a href='", escape_html(title_url(pub)), "' target='_blank' rel='noopener'>", format_title(pub$title), "</a>.",
+        "<a href='", escape_html(title_url(pub, scholar$urls)), "' target='_blank' rel='noopener'>", format_title(pub$title), "</a>.",
         format_venue(pub),
         format_extra_links(pub, root_prefix),
         "</div>"
@@ -198,7 +220,12 @@ format_publications <- function(
       Cites = if (is.null(count)) "" else paste0(
         "<span class='publication-cites-label'>", labels$citations, ": </span>", count
       ),
-      Pdf = format_pdf_icon(pub, root_prefix, labels),
+      Pdf = paste0(
+        "<div class='publication-assets'>",
+        format_pdf_icon(pub, root_prefix, labels),
+        format_data_links(pub, root_prefix, labels),
+        "</div>"
+      ),
       stringsAsFactors = FALSE
     )
   })
@@ -232,7 +259,7 @@ publication_table <- function(publications, lang = c("ja", "en")) {
         class = "publication-cell-center publication-cites-cell",
         headerClass = "publication-nowrap publication-cites-cell"
       ),
-      Pdf = reactable::colDef(name = "", html = TRUE, align = "center", maxWidth = 64, class = "publication-cell-center publication-pdf-cell")
+      Pdf = reactable::colDef(name = "", html = TRUE, align = "center", minWidth = 76, maxWidth = 96, class = "publication-cell-center publication-pdf-cell")
     ),
     style = list(fontSize = "18px")
   )

@@ -2,6 +2,8 @@
 #
 # - push to main      -> build + deploy
 # - pull request      -> build + checks only (no deploy)
+# - every Monday      -> rebuild + deploy, so citation counts from Google
+#                        Scholar stay current
 # - manual run        -> Actions tab -> "Build and deploy website" -> Run workflow
 #
 # One-time setup:
@@ -15,6 +17,8 @@ on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: "0 21 * * 0" # Monday 06:00 JST
   workflow_dispatch:
 
 permissions:
