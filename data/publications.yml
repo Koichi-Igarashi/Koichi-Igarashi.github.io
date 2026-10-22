@@ -15,13 +15,13 @@
 #   doi:       DOI without "https://doi.org/" (linked under the citation;
 #              the title itself links to the paper on Google Scholar)
 #   pdf:       one or more PDF locations. Each item has `url` and an
-#              optional `label`. The first item gets the PDF icon; the rest
+#              optional `label`. The first item is the [PDF] link; the rest
 #              are listed under the citation. `url` can be
 #                - a file in this repository, e.g. "papers/xxx.pdf"
 #                - any external URL (institutional repository, publisher,
 #                  ResearchGate, ...). PDFs do not have to be stored here.
 #   data:      published data / code (Zenodo, GitHub, Dryad ...), same
-#              format; shown as a "Data & code" link under the PDF icon
+#              format; shown as a [DATA] link under [PDF]
 #   links:     other links (press release ...), listed under the citation
 #   scholar_title: title as written on Google Scholar, only if it differs
 #              (used to find citation counts and the Scholar page)

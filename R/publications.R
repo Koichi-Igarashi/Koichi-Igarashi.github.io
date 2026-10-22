@@ -137,7 +137,7 @@ format_extra_links <- function(pub, root_prefix) {
   paste0("<div class='publication-actions'>", paste(links, collapse = ""), "</div>")
 }
 
-format_pdf_icon <- function(pub, root_prefix, labels) {
+format_pdf_link <- function(pub, root_prefix, labels) {
   pdfs <- normalise_links(pub$pdf)
   if (length(pdfs) == 0 || pdfs[[1]]$url == "") {
     return("")
@@ -147,12 +147,11 @@ format_pdf_icon <- function(pub, root_prefix, labels) {
   paste0(
     "<a class='publication-pdf-link' href='", escape_html(url), "' target='_blank' rel='noopener'",
     " aria-label='", escape_html(description), "' title='", escape_html(description), "'>",
-    "<i class='bi bi-filetype-pdf' aria-hidden='true'></i>",
-    "</a>"
+    "[PDF]</a>"
   )
 }
 
-# "Data & code" links shown under the PDF icon (field `data`)
+# [DATA] links (published data / code, field `data`) shown under [PDF]
 format_data_links <- function(pub, root_prefix, labels) {
   links <- vapply(normalise_links(pub$data), function(link) {
     if (link$url == "") {
@@ -162,10 +161,8 @@ format_data_links <- function(pub, root_prefix, labels) {
     label <- if (link$label == "") labels$data else link$label
     paste0(
       "<a class='publication-data-link' href='", escape_html(url), "'", link_attributes(url),
-      " title='", escape_html(label), "'>",
-      "<i class='bi bi-database' aria-hidden='true'></i>",
-      "<span>", escape_html(label), "</span>",
-      "</a>"
+      " aria-label='", escape_html(label), "' title='", escape_html(label), "'>",
+      "[DATA]</a>"
     )
   }, character(1))
   paste(links, collapse = "")
@@ -222,7 +219,7 @@ format_publications <- function(
       ),
       Pdf = paste0(
         "<div class='publication-assets'>",
-        format_pdf_icon(pub, root_prefix, labels),
+        format_pdf_link(pub, root_prefix, labels),
         format_data_links(pub, root_prefix, labels),
         "</div>"
       ),
