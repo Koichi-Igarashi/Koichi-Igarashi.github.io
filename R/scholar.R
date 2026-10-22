@@ -20,17 +20,24 @@ fetch_scholar_profile <- function(scholar_id = scholar_profile_id, timeout = 20)
     "%s/citations?hl=en&user=%s&cstart=0&pagesize=100&sortby=pubdate",
     scholar_base_url, scholar_id
   )
-  old <- options(timeout = timeout)
-  on.exit(options(old), add = TRUE)
-  con <- url(
-    page_url,
-    method = "libcurl",
-    headers = c(
-      "User-Agent" = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-      "Accept-Language" = "en"
-    )
-  )
-  html <- xml2::read_html(con, encoding = "UTF-8")
+  # The curl command-line tool (on GitHub's runners and most systems) is
+  # used so that the HTTP status is visible in the build log when blocked.
+  page_file <- tempfile(fileext = ".html")
+  on.exit(unlink(page_file), add = TRUE)
+  status <- suppressWarnings(system2("curl", c(
+    "--silent", "--show-error", "--location", "--compressed",
+    "--max-time", timeout,
+    "--user-agent", shQuote("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"),
+    "--header", shQuote("Accept-Language: en"),
+    "--output", shQuote(page_file),
+    "--write-out", shQuote("%{http_code} %{url_effective}"),
+    shQuote(page_url)
+  ), stdout = TRUE, stderr = TRUE))
+  status <- paste(status, collapse = " ")
+  if (!grepl("^200 ", status)) {
+    stop("request failed: ", status, call. = FALSE)
+  }
+  html <- xml2::read_html(page_file, encoding = "UTF-8")
   rows <- xml2::xml_find_all(html, "//tr[contains(concat(' ', normalize-space(@class), ' '), ' gsc_a_tr ')]")
   if (length(rows) == 0) {
     stop("no publications found on the Google Scholar page (request blocked?)", call. = FALSE)
