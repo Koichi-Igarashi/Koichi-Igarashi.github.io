@@ -70,7 +70,7 @@ jobs:
           fi
           actual="$(Rscript -e 'cat(sub("/$", "", yaml::read_yaml("_quarto.yml")$website$`site-url`))')"
           if [ "$expected" != "$actual" ]; then
-            msg="site-url in _quarto.yml is ${actual}, but GitHub Pages serves this repository at ${expected}. Rename the repository or change site-url (see docs/migration-guide.md)."
+            msg="site-url in _quarto.yml is ${actual}, but GitHub Pages serves this repository at ${expected}. Rename the repository or change site-url."
             if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then echo "::warning::$msg"; else echo "::error::$msg"; exit 1; fi
           fi
           echo "Site URL: $actual"

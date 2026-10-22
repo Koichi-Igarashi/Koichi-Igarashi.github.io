@@ -3,8 +3,7 @@
 # and the text in each language (`ja`, `en`; Markdown allowed, e.g. **bold**).
 # If `en` is missing, the item is shown only on the Japanese page.
 #
-# English text marked "# review" is a translation draft — please check
-# official English names before relying on it.
+# "# review": translation draft, check official English names.
 
 news:
   - date: 2026-06-25

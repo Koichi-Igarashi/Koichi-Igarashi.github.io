@@ -20,9 +20,8 @@ project:
 # Quarto concatenates lists across profiles, so a navbar here would be
 # duplicated in every language.
 website:
-  # Public URL of the site (no trailing slash). The repository must be named
-  # Koichi-Igarashi.github.io for this URL (see docs/migration-guide.md).
-  # Also update legacy-redirect/_quarto.yml if this changes.
+  # Public URL of the site (no trailing slash); matches the repository name
+  # Koichi-Igarashi.github.io. Also update legacy-redirect/_quarto.yml if it changes.
   site-url: "https://koichi-igarashi.github.io"
   google-analytics: "G-HCK5G6DBKK"
   title: "Koichi Igarashi"
