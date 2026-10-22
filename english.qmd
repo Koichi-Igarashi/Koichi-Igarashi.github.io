@@ -12,7 +12,6 @@ engine: knitr
 [![](images/logo/researchgate-square.256x256.png){.researchgate fig-alt="ResearchGate"}](https://www.researchgate.net/profile/Koichi-Igarashi-3)
 [![](images/logo/orcid-square.png){.orcid fig-alt="ORCID"}](https://orcid.org/0000-0002-3537-9239)
 [![](images/logo/square-x-twitter-brands-solid.png){.x-twitter fig-alt="X"}](https://twitter.com/igapije)
-[![](images/logo/file-cv.png){.cv fig-alt="CV"}](https://drive.google.com/file/d/1XdL0A5Qe0u0uUpyLZfPBGsuuAM_cjCgj/view?usp=sharing)
 :::
 
 [Current affiliation:]{.profile-label} Laboratory of Marine Biology and Ecology, Graduate School of Fisheries Sciences, Hokkaido University
