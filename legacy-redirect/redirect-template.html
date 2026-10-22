@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="$lang$">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>$pagetitle$</title>
+<meta http-equiv="refresh" content="0; url=$new-site-url$/$redirect-path$">
+<link rel="canonical" href="$new-site-url$/$redirect-path$">
+<script>
+  // Same redirect for browsers with JavaScript (keeps #anchors).
+  window.location.replace("$new-site-url$/$redirect-path$" + window.location.hash);
+</script>
+<style>
+  body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; margin: 3rem auto; max-width: 40rem; padding: 0 1rem; line-height: 1.6; }
+</style>
+</head>
+<body>
+<p>このサイトは移転しました．/ This site has moved.</p>
+<p><a href="$new-site-url$/$redirect-path$">$new-site-url$/$redirect-path$</a></p>
+</body>
+</html>

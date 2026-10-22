@@ -1,0 +1,4 @@
+---
+pagetitle: "Posts – Koichi Igarashi（移転しました）"
+redirect-path: "posts.html"
+---
