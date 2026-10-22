@@ -1,0 +1,18 @@
+# Japanese (main language) profile, applied by babelquarto when rendering
+# the Japanese site. Preview only the Japanese pages with:
+#   quarto preview --profile ja
+project:
+  resources:
+    - papers/
+
+website:
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: Research
+      - href: achievements.qmd
+        text: Achievements
+      - href: posts.qmd
+        text: Posts

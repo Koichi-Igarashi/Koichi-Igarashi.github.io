@@ -1,0 +1,44 @@
+---
+title: ""
+pagetitle: "Home"
+description: "Personal website of Koichi Igarashi (五十嵐公一), a graduate student at the Graduate School of Fisheries Sciences, Hokkaido University: research, publications and news."
+toc: false
+image: images/og-image.jpg
+engine: knitr
+---
+
+```{r}
+#| include: false
+source("R/cv.R")
+```
+
+##### This is the personal website of Koichi Igarashi, a graduate student at the Graduate School of Fisheries Sciences, Hokkaido University.
+
+::: {.profile-links}
+[![](images/logo/researchmap220.gif){.researchmap fig-alt="researchmap"}](https://researchmap.jp/igapijie)
+[![](images/logo/google-scholar-square-icon.png){.scholar fig-alt="Google Scholar"}](https://scholar.google.co.jp/citations?user=AEWO65QAAAAJ&hl=en&oi=sra)
+[![](images/logo/researchgate-square.256x256.png){.researchgate fig-alt="ResearchGate"}](https://www.researchgate.net/profile/Koichi-Igarashi-3)
+[![](images/logo/orcid-square.png){.orcid fig-alt="ORCID"}](https://orcid.org/0000-0002-3537-9239)
+[![](images/logo/square-x-twitter-brands-solid.png){.x-twitter fig-alt="X (Twitter)"}](https://twitter.com/igapije)
+:::
+
+[Current affiliation:]{.profile-label} Laboratory of Marine Biology and Ecology, Graduate School of Fisheries Sciences, Hokkaido University
+
+[Contact:]{.profile-label} igapipy\[at\]gmail.com
+
+
+## News
+
+::: {.news-container tabindex="0" role="region" aria-label="News"}
+
+```{r}
+#| echo: false
+#| output: asis
+cv_list("news", "en", style = "news")
+```
+
+:::
+
+<br>
+
+Latest update - `r format(Sys.time(), " %Y/%m/%d")`

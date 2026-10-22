@@ -1,6 +1,6 @@
 ---
 title: "Posts"
-lang: ja
+description: "五十嵐公一のブログ（研究や日々の備忘録）．"
 listing:
   contents:
     - posts/test

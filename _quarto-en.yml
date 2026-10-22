@@ -1,0 +1,14 @@
+# English profile, applied by babelquarto when rendering the English site
+# (output in _site/en/). File names stay the same as the Japanese pages:
+# `about.en.qmd` is rendered as `en/about.html`.
+website:
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: Research
+      - href: achievements.qmd
+        text: Achievements
+      - href: posts.qmd
+        text: Posts

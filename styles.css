@@ -115,6 +115,10 @@ body {
   display: flex;
 }
 
+.publication-cites-label {
+  display: none;
+}
+
 .publication-year-header {
   text-align: left;
 }
@@ -193,6 +197,70 @@ body {
   height: min(70vh, 640px);
   margin-top: 0.45rem;
   width: 100%;
+}
+
+/* Page descriptions are used for search engines / social cards only;
+   keep the title block as it was before (title without subtitle). */
+.quarto-title-block .description {
+  display: none;
+}
+
+/* Language switch in the navbar (added by scripts/postprocess_site.R) */
+.language-switch .bi {
+  margin-right: 0.15rem;
+}
+
+.news-container:focus-visible {
+  outline: 2px solid #2c6f7e;
+  outline-offset: 2px;
+}
+
+/* Publications table on phones: year, citations and PDF icon on one line,
+   citation text below, instead of a table wider than the screen. */
+@media screen and (max-width: 600px) {
+  .publication-table .rt-thead {
+    display: none;
+  }
+
+  .publication-table .rt-tbody,
+  .publication-table .rt-tr {
+    min-width: 0 !important;
+  }
+
+  .publication-table .rt-tr {
+    flex-wrap: wrap;
+  }
+
+  .publication-table .rt-td {
+    flex: 0 0 auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    width: auto !important;
+  }
+
+  .publication-table .publication-year-cell {
+    flex: 1 1 auto !important;
+    font-weight: 700;
+    order: 0;
+  }
+
+  .publication-table .publication-cites-cell {
+    order: 1;
+  }
+
+  .publication-table .publication-pdf-cell {
+    order: 2;
+  }
+
+  .publication-table .publication-item-cell {
+    flex: 1 1 100% !important;
+    order: 3;
+  }
+
+  .publication-table .publication-cites-label {
+    display: inline;
+    font-size: 0.85em;
+  }
 }
 
 @media screen and (max-width: 600px) {
