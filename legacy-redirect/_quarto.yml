@@ -1,0 +1,17 @@
+# Redirect pages for the OLD site https://igapipy.quarto.pub/koichi-igarashi/
+# Every old URL gets a page that immediately forwards visitors and search
+# engines to the same page on the new GitHub Pages site.
+# Publish (from this folder):  quarto publish quarto-pub
+# See README.md in this folder before publishing.
+project:
+  type: default
+  output-dir: _site
+
+# The new site (no trailing slash). Must match website.site-url in ../_quarto.yml.
+new-site-url: "https://koichi-igarashi.github.io"
+
+format:
+  html:
+    template: redirect-template.html
+    minimal: true
+    lang: ja

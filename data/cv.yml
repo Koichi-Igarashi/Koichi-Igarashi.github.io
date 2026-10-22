@@ -1,0 +1,108 @@
+# News, grants, awards and presentations — shared by the Japanese and
+# English pages. Each item has a `date` (used for sorting, newest first)
+# and the text in each language (`ja`, `en`; Markdown allowed, e.g. **bold**).
+# If `en` is missing, the item is shown only on the Japanese page.
+#
+# "# review": translation draft, check official English names.
+
+news:
+  - date: 2026-06-25
+    ja: "Zoological Scienceに主著論文がアクセプトされました．"
+    en: "My first-authored paper was accepted in Zoological Science."
+  - date: 2026-03-31
+    ja: "水産無脊椎動物研究所の個別研究助成に採択されました．"
+    en: "Received an individual research grant from the Research Institute of Marine Invertebrates."  # review
+  - date: 2026-03-16
+    ja: "第73回日本生態学会大会に参加し，自由集会にて発表を行いました．"
+    en: "Gave a talk in a free session at the 73rd Annual Meeting of the Ecological Society of Japan."
+  - date: 2025-12-08
+    ja: "日本動物行動学会第44回大会に参加し，口頭発表を行いました．"
+    en: "Gave an oral presentation at the 44th Annual Meeting of the Japan Ethological Society."
+  - date: 2025-08-15
+    ja: "サイトを微修正．今年は11月の動物行動学会は出る予定です．"
+    en: "Minor updates to this website. I plan to attend the Japan Ethological Society meeting in November."
+  - date: 2025-04-01
+    ja: "博士課程１年になりました．"
+    en: "Started the doctoral program."
+  - date: 2025-03-17
+    ja: "ESJ72で英語口頭発表しました．"
+    en: "Gave an oral presentation in English at ESJ72."
+  - date: 2024-12-01
+    ja: "日本甲殻類学会第62回大会のシンポジウムでお話しました．"
+    en: "Gave a symposium talk at the 62nd Annual Meeting of the Carcinological Society of Japan."
+  - date: 2024-10-08
+    ja: "ホームページをQuartoで書き直しました．"
+    en: "Rebuilt this website with Quarto."
+  - date: 2024-09-27
+    ja: "学振DC1採用内定いただきました！"
+    en: "Selected as a JSPS Research Fellow (DC1)!"
+  - date: 2024-05-07
+    ja: "ひとまずホームページ完成ということにしました．随時更新予定．"
+    en: "The website is now (more or less) complete. It will be updated regularly."
+  - date: 2024-04-26
+    ja: "令和６年度厚岸湖・別寒辺牛湿原学術研究奨励補助金に採択されました．"
+    en: "Received the FY2024 Akkeshi-ko and Bekambeushi Wetland Research Grant."  # review
+  - date: 2024-03-21
+    ja: "札幌で開催されたSQuIDワークショップに参加していました．"
+    en: "Attended the SQuID workshop in Sapporo."
+  - date: 2024-03-16
+    ja: "ESJ71でポスター発表しました．"
+    en: "Presented a poster at ESJ71."
+  - date: 2024-03-01
+    ja: "初の論文が出版されました．"
+    en: "My first paper was published."
+  - date: 2024-01-15
+    ja: "初の論文がアクセプトされました．"
+    en: "My first paper was accepted."
+  - date: 2024-01-05
+    ja: "ホームページを作成してみました．まだ未完成．"
+    en: "Created this website (still under construction)."
+
+grants:
+  - date: 2026-04
+    ja: "公益財団法人 水産無脊椎動物研究所 個別研究助成 2026年4月〜2027年3月 (**研究代表者**)"
+    en: "Individual Research Grant, Research Institute of Marine Invertebrates, Apr 2026–Mar 2027 (**Principal Investigator**)"  # review
+  - date: 2025-04
+    ja: "令和7年度厚岸湖・別寒辺牛湿原学術研究奨励補助金 2025年4月〜2026年3月 (**研究代表者**)"
+    en: "FY2025 Akkeshi-ko and Bekambeushi Wetland Research Grant, Apr 2025–Mar 2026 (**Principal Investigator**)"  # review
+  - date: 2025-04
+    ja: "日本学術振興会特別研究員DC1　2025年4月〜2028年3月"
+    en: "JSPS Research Fellowship for Young Scientists (DC1), Apr 2025–Mar 2028"
+  - date: 2024-04
+    ja: "令和６年度厚岸湖・別寒辺牛湿原学術研究奨励補助金 2024年4月〜2025年3月 (**研究代表者**)"
+    en: "FY2024 Akkeshi-ko and Bekambeushi Wetland Research Grant, Apr 2024–Mar 2025 (**Principal Investigator**)"  # review
+
+# Awards are listed oldest first on the page (as before).
+awards:
+  - date: 2022-12
+    ja: "2022年12月. 2022年度日本生態学会北海道地区会，若手研究奨励賞 受賞"
+    en: "Dec 2022. Young Researcher Encouragement Award, 2022 Hokkaido Regional Meeting of the Ecological Society of Japan"  # review
+  - date: 2023-03
+    ja: "2023年3月．第70回日本生態学会大会，ポスター賞最優秀賞（行動分野) 受賞"
+    en: "Mar 2023. Best Poster Award (Behavior), the 70th Annual Meeting of the Ecological Society of Japan"  # review
+
+presentations:
+  - date: 2026-03
+    ja: '**五十嵐公一** "ヘラムシの柔軟な行動防御 ～防御タイミングの意味とは？～", 自由集会「食べられそうになってからが本番？：捕食者との接触後にはたらく多様な防衛戦略」, 第73回日本生態学会大会, 京都, 2026年3月 (口頭)．'
+    en: '**Koichi Igarashi** "Flexible behavioral defenses in idoteid isopods: what does the timing of defense mean?", Free session "The real game starts when you are about to be eaten? Diverse defense strategies after contact with predators", the 73rd Annual Meeting of the Ecological Society of Japan, Kyoto, Mar 2026 (oral, in Japanese).'  # review
+  - date: 2025-11
+    ja: '**五十嵐公一**・関岡寛知 "海浜の節足動物は荒天時に安全な陸地へ集団避難する" 2025日本動物行動学会第44回大会, 函館, 2025年11月 (口頭)．'
+    en: '**Koichi Igarashi**, H Sekioka "Beach arthropods collectively evacuate to safe ground during stormy weather", the 44th Annual Meeting of the Japan Ethological Society, Hakodate, Nov 2025 (oral, in Japanese).'  # review (co-author name)
+  - date: 2025-03
+    ja: '**Koichi Igarashi**・Satoshi Wada "Alternative anti-predator tactics are related to microhabitat in a marine isopod", ESJ72, Sapporo, 2025/3 (Oral presentation).'
+    en: '**Koichi Igarashi**, Satoshi Wada "Alternative anti-predator tactics are related to microhabitat in a marine isopod", ESJ72 (the 72nd Annual Meeting of the Ecological Society of Japan), Sapporo, Mar 2025 (oral).'
+  - date: 2024-12
+    ja: '**五十嵐公一** "意外と洗練されているヘラムシの身を守る術" 2024甲殻類学会第62回大会, 公開シンポジウム「エビでもカニでもない！！ 海にすむ小さな甲殻類の行動と社会」, 函館, 2024年12月 (口頭)．'
+    en: '**Koichi Igarashi** "The surprisingly sophisticated defenses of idoteid isopods", Public symposium "Neither shrimps nor crabs!! Behavior and society of small marine crustaceans", the 62nd Annual Meeting of the Carcinological Society of Japan, Hakodate, Dec 2024 (oral, in Japanese).'  # review
+  - date: 2024-03
+    ja: '**五十嵐公一**・和田哲 "オホーツクヘラムシにおける複数タイプの不動行動" 第71回日本生態学会大会，オンライン，2024年3月 (ポスター)．'
+    en: '**Koichi Igarashi**, Satoshi Wada "Multiple types of immobility behavior in the isopod *Idotea ochotensis*", the 71st Annual Meeting of the Ecological Society of Japan, online, Mar 2024 (poster, in Japanese).'  # review (species name)
+  - date: 2023-03
+    ja: '**五十嵐公一**・和田哲 "イソへラムシは動かない: 対捕食者行動としての不動行動と複数種の捕食者への反応" 第70回日本生態学会大会，オンライン．2023年3月 (ポスター)．**ポスター賞最優秀賞（行動分野) 受賞**'
+    en: '**Koichi Igarashi**, Satoshi Wada "*Cleantiella isopus* stays still: immobility as an anti-predator behavior and responses to multiple predator species", the 70th Annual Meeting of the Ecological Society of Japan, online, Mar 2023 (poster, in Japanese). **Best Poster Award (Behavior)**'  # review
+  - date: 2022-12
+    ja: '**五十嵐公一**・和田哲 "イソへラムシは不動行動で魚類捕食者からの捕食を回避する" 2022年度日本生態学会北海道地区大会，オンライン．2022年12月 (口頭)．**若手研究奨励賞受賞**'
+    en: '**Koichi Igarashi**, Satoshi Wada "*Cleantiella isopus* avoids predation by fish through immobility", 2022 Hokkaido Regional Meeting of the Ecological Society of Japan, online, Dec 2022 (oral, in Japanese). **Young Researcher Encouragement Award**'  # review
+  - date: 2022-09
+    ja: '**五十嵐公一**・和田哲 " イソへラムシは動かない: 対捕食者行動としての不動行動とその個体間変異パターン" 2022年日本プランクトン学会・日本ベントス学会合同大会，オンライン．2022年9月 (口頭)'
+    en: '**Koichi Igarashi**, Satoshi Wada "*Cleantiella isopus* stays still: immobility as an anti-predator behavior and its patterns of individual variation", 2022 Joint Meeting of the Plankton Society of Japan and the Japanese Association of Benthology, online, Sep 2022 (oral, in Japanese).'  # review

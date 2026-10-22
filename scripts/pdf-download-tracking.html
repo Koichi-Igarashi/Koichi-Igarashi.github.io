@@ -1,6 +1,6 @@
 <script>
 document.addEventListener("click", function(event) {
-  const link = event.target.closest("a.publication-pdf-link[href$='.pdf']");
+  const link = event.target.closest("a.publication-pdf-link[href$='.pdf'], .publication-item a[href$='.pdf']");
   if (!link || typeof window.gtag !== "function") {
     return;
   }

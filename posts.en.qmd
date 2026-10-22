@@ -1,0 +1,7 @@
+---
+title: "Posts"
+description: "Blog posts by Koichi Igarashi (currently written in Japanese)."
+---
+
+Blog posts are currently written in Japanese only.
+You can read them on the [Japanese blog page](../posts.html){hreflang="ja" lang="ja"}.

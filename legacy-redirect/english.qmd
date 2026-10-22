@@ -1,0 +1,4 @@
+---
+pagetitle: "Koichi Igarashi – English (moved)"
+redirect-path: "en/"
+---

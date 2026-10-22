@@ -1,0 +1,49 @@
+---
+title: "Achievements"
+description: "五十嵐公一の業績一覧：論文，研究助成，受賞，学会発表．"
+engine: knitr
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+source("R/publications.R")
+source("R/cv.R")
+```
+
+Latest update - `r format(Sys.time(), " %Y/%m/%d")`
+
+### Publications
+
+```{r}
+publication_table(format_publications("ja", site_root = "../"), "ja")
+```
+
+### Grants
+
+```{r}
+#| output: asis
+cv_list("grants", "ja", style = "numbered")
+```
+
+### Awards
+
+```{r}
+#| output: asis
+cv_list("awards", "ja", style = "bullet", newest_first = FALSE)
+```
+
+### Presentations
+
+<details>
+<summary><strong>一覧</strong></summary>
+
+```{r}
+#| output: asis
+cv_list("presentations", "ja", style = "numbered")
+```
+
+</details>

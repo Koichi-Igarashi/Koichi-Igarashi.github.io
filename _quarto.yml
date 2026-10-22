@@ -1,30 +1,36 @@
 project:
   type: website
+  # R code always runs from the project root (pages live in sub-folders,
+  # e.g. achievements/index.qmd -> /achievements/)
+  execute-dir: project
   post-render:
     - scripts/cleanup_publish_files.R
-  resources:
-    - papers/
   render:
     - "*.qmd"
-    - "posts/test/index.qmd"
-    - "!posts/naturalhist/index.qmd"
-    - "!posts/teisai/index.qmd"
+    # Research (about*.qmd) and Posts (posts*.qmd, posts/) are kept in the
+    # repository but not published. To publish them again, remove the two
+    # lines below, add the pages back to the navbars in _quarto-ja.yml /
+    # _quarto-en.yml and list the posts to publish (e.g. "posts/test/index.qmd").
+    - "!about.qmd"
+    - "!posts.qmd"
+    - "!posts/"
+    - "!legacy-redirect/"
 
+# Navigation menus live in _quarto-ja.yml and _quarto-en.yml.
+# Quarto concatenates lists across profiles, so a navbar here would be
+# duplicated in every language.
 website:
+  # Public URL of the site (no trailing slash); matches the repository name
+  # Koichi-Igarashi.github.io. Also update legacy-redirect/_quarto.yml if it changes.
+  site-url: "https://koichi-igarashi.github.io"
   google-analytics: "G-HCK5G6DBKK"
   title: "Koichi Igarashi"
+  description: "北海道大学大学院水産科学院の大学院生・五十嵐公一（Koichi Igarashi）の研究者ウェブサイトです．海産等脚類を対象に，捕食者–被食者相互作用などの行動生態学を研究しています．"
+  image: images/og-image.jpg
   page-footer: "Copyright 2025, Koichi Igarashi"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - href: achievements.qmd
-        text: Achievements
-      - href: posts.qmd
-        text: Posts
-    right:
-      - href: english.qmd
-        text: English
+  open-graph: true
+  twitter-card:
+    creator: "@igapije"
 
 format:
   html:
@@ -33,4 +39,23 @@ format:
     css: styles.css
     include-after-body:
       - scripts/pdf-download-tracking.html
-    mainfont: Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans
+    # Japanese fallbacks for Windows (Yu Gothic, Meiryo) and Android/Linux (Noto Sans JP)
+    mainfont: 'Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans, "Yu Gothic Medium", "Yu Gothic", YuGothic, Meiryo, "Noto Sans JP", "Noto Sans CJK JP", sans-serif'
+
+lang: ja
+
+# Multilingual rendering with babelquarto (https://docs.ropensci.org/babelquarto/).
+# Japanese pages are `name.qmd`; English translations are `name.en.qmd`.
+# Build with `Rscript scripts/build.R` (see README.md).
+babelquarto:
+  languagelinks: navbar
+  mainlanguage: ja
+  languages:
+    - en
+  languagecodes:
+    - name: ja
+      text: "日本語"
+    - name: en
+      text: "English"
+title-en: "Koichi Igarashi"
+description-en: "Personal website of Koichi Igarashi, a graduate student at the Graduate School of Fisheries Sciences, Hokkaido University, studying behavioural ecology and predator–prey interactions in marine isopods."

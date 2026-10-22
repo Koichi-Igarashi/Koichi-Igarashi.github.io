@@ -1,0 +1,71 @@
+# Publication list — the single source of truth for the Japanese and English
+# Achievements pages. Add new papers at the top or bottom; the pages are
+# always sorted by year (newest first), then by `order` if given.
+#
+# Fields (only `year`, `authors` and `title` are required):
+#   id:        short unique key (used to look up citation counts)
+#   year:      publication year (or expected year for accepted papers)
+#   authors:   list of authors as they should appear; your name (see
+#              `highlight` below) is shown in bold automatically
+#   title:     article title exactly as published (capitalisation is kept);
+#              write scientific names in *asterisks* to show them in italics
+#   journal:   journal name
+#   volume, issue, pages / article: shown as "volume(issue), pages"
+#   status:    e.g. "Accepted", "In press" (omit when published)
+#   doi:       DOI without "https://doi.org/" — the title links to it
+#   url:       landing page, used for the title link when there is no DOI
+#   pdf:       one or more PDF locations. Each item has `url` and an
+#              optional `label`. The first item gets the PDF icon; the rest
+#              are listed under the citation. `url` can be
+#                - a file in this repository, e.g. "papers/xxx.pdf"
+#                - any external URL (institutional repository, publisher,
+#                  ResearchGate, ...). PDFs do not have to be stored here.
+#   links:     other links (data, code, press release ...), same format
+#   scholar_title: title as written on Google Scholar, only if it differs
+#              (used by scripts/update_citations.R)
+#
+# Template:
+# - id: igarashi2027xxx
+#   year: 2027
+#   authors: [K Igarashi, S Wada]
+#   title: "Title"
+#   journal: "Journal name"
+#   volume: ""
+#   issue: ""
+#   pages: ""
+#   status: "Accepted"
+#   doi: ""
+#   pdf:
+#     - url: "papers/Journal_Igarashi_2027.pdf"
+#       label: "Accepted manuscript"
+
+highlight: "K Igarashi"
+
+publications:
+  - id: igarashi2026zoolsci
+    year: 2026
+    authors: [K Igarashi, S Wada]
+    title: "Predator-specific deployment of defensive behaviors in the marine isopod *Cleantiella isopus* (Isopoda, Idoteidae): Arched posture against fish and escape against crabs"
+    journal: "Zoological Science"
+    status: "Accepted"
+    doi: ""   # TODO: add when the DOI is issued
+    pdf:
+      - url: "papers/ZoolSci_Igarashi_2026.pdf"
+        label: "Accepted manuscript"
+    links:
+      - url: "https://doi.org/10.5281/zenodo.18883199"
+        label: "Data & code (Zenodo)"
+
+  - id: igarashi2024jmba
+    year: 2024
+    authors: [K Igarashi, S Wada]
+    title: "Tonic immobility in a marine isopod: the effects of body size, sex, and colour morph"
+    journal: "Journal of the Marine Biological Association of the United Kingdom"
+    volume: "104"
+    article: "e17"
+    doi: "10.1017/S0025315424000134"
+    pdf:
+      - url: "papers/JMBA_Igarashi_2024.pdf"
+        label: "Accepted manuscript"
+      - url: "https://eprints.lib.hokudai.ac.jp/repo/huscap/all/93049/manuscript.pdf"
+        label: "HUSCAP"

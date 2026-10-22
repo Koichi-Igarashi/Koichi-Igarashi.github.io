@@ -1,0 +1,47 @@
+---
+title: "Research"
+description: "Research interests of Koichi Igarashi: predator–prey interactions, plant–herbivore interactions, eco-evolutionary consequences of extreme weather events, human impacts on biotic interactions, and scientific natural history."
+engine: knitr
+---
+I am interested in the following research areas and their intersections.
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+![Predator–prey interactions](images/web/isohera_debu.jpg){.img-fluid}
+
+### Predator–prey interactions
+
+:::
+
+::: {.g-col-12 .g-col-md-6}
+![Plant–herbivore interactions](images/web/P5040498.jpg){.img-fluid}
+
+### Plant–herbivore interactions
+
+:::
+
+::: {.g-col-12 .g-col-md-6}
+![Extreme weather](images/web/flood.jpg){.img-fluid}
+
+### Evolutionary and ecological consequences of extreme weather events
+
+:::
+
+::: {.g-col-12 .g-col-md-6}
+![Human activities](images/web/P5010218.jpg){.img-fluid}
+
+### Effects of human activities on biotic interactions
+
+:::
+
+::: {.g-col-12}
+![Natural history](images/web/kattosi.jpg){.img-fluid}
+
+### Scientific natural history
+
+:::
+
+:::
+
+Latest update - `r format(Sys.time(), " %Y/%m/%d")`

@@ -1,0 +1,4 @@
+---
+pagetitle: "五十嵐公一 – Koichi Igarashi（移転しました）"
+redirect-path: ""
+---

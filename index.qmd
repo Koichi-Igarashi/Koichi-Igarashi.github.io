@@ -1,8 +1,16 @@
 ---
 title: ""
+pagetitle: "五十嵐公一"
+description: "北海道大学大学院水産科学院の大学院生・五十嵐公一（Koichi Igarashi）の研究者ウェブサイトです．業績やニュースを掲載しています．"
 toc: false
+image: images/og-image.jpg
 engine: knitr
 ---
+
+```{r}
+#| include: false
+source("R/cv.R")
+```
 
 ##### 北海道大学水産科学院の大学院生・五十嵐公一のWEBサイトです．
 
@@ -11,7 +19,7 @@ engine: knitr
 [![](images/logo/google-scholar-square-icon.png){.scholar fig-alt="Google Scholar"}](https://scholar.google.co.jp/citations?user=AEWO65QAAAAJ&hl=ja&oi=sra)
 [![](images/logo/researchgate-square.256x256.png){.researchgate fig-alt="ResearchGate"}](https://www.researchgate.net/profile/Koichi-Igarashi-3)
 [![](images/logo/orcid-square.png){.orcid fig-alt="ORCID"}](https://orcid.org/0000-0002-3537-9239)
-[![](images/logo/square-x-twitter-brands-solid.png){.x-twitter fig-alt="X"}](https://twitter.com/igapije)
+[![](images/logo/square-x-twitter-brands-solid.png){.x-twitter fig-alt="X (Twitter)"}](https://twitter.com/igapije)
 :::
 
 [現所属：]{.profile-label} 北海道大学 水産科学院 海洋生物資源科学専攻 海洋生物学講座 [動物生態学研究室](https://sites.google.com/site/hokudailabmarbiolecol/home?authuser=0)
@@ -21,41 +29,13 @@ engine: knitr
 
 ## News
 
-::: news-container
+::: {.news-container tabindex="0" role="region" aria-label="News"}
 
--   **2026-06-25**: Zoological Scienceに主著論文がアクセプトされました．
-
--   **2026-03-31**: 水産無脊椎動物研究所の個別研究助成に採択されました．
-
--   **2026-03-16**: 第73回日本生態学会大会会に参加し，自由集会にて発表を行いました．
-
--   **2025-12-08**: 日本動物行動学会第44回大会に参加し，口頭発表を行いました．
-
--   **2025-08-15**: サイトを微修正．今年は11月の動物行動学会は出る予定です．
-
--   **2025-04-01**: 博士課程１年になりました．
-
--   **2025-03-17**: ESJ72で英語口頭発表しました．
-
--   **2024-12-01**: 日本甲殻類学会第62回大会のシンポジウムでお話しました．
-
--   **2024-10-08**: ホームページをQuartoで書き直しました．
-
--   **2024-09-27**: 学振DC1採用内定いただきました！
-
--   **2024-05-07**: ひとまずホームページ完成ということにしました．随時更新予定．
-
--   **2024-04-26**: 令和６年度厚岸湖・別寒辺牛湿原学術研究奨励補助金に採択されました．
-
--   **2024-03-21**: 札幌で開催されたSQuIDワークショップに参加していました．
-
--   **2024-03-16**: ESJ71でポスター発表しました．
-
--   **2024-03-01**: 初の論文が出版されました．
-
--   **2024-01-15**: 初の論文がアクセプトされました．
-
--   **2024-01-05**: ホームページを作成してみました．まだ未完成．
+```{r}
+#| echo: false
+#| output: asis
+cv_list("news", "ja", style = "news")
+```
 
 :::
 

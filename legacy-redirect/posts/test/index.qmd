@@ -1,0 +1,4 @@
+---
+pagetitle: "Quartoで個人サイトを作ってみた（移転しました）"
+redirect-path: ""   # page not published on the new site -> home
+---

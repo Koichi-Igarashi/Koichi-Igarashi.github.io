@@ -1,0 +1,49 @@
+---
+title: "Achievements"
+description: "Publications, research grants, awards and conference presentations of Koichi Igarashi."
+engine: knitr
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+source("R/publications.R")
+source("R/cv.R")
+```
+
+Latest update - `r format(Sys.time(), " %Y/%m/%d")`
+
+### Publications
+
+```{r}
+publication_table(format_publications("en", site_root = "../../"), "en")
+```
+
+### Grants
+
+```{r}
+#| output: asis
+cv_list("grants", "en", style = "numbered")
+```
+
+### Awards
+
+```{r}
+#| output: asis
+cv_list("awards", "en", style = "bullet", newest_first = FALSE)
+```
+
+### Presentations
+
+<details>
+<summary><strong>Show all</strong></summary>
+
+```{r}
+#| output: asis
+cv_list("presentations", "en", style = "numbered")
+```
+
+</details>
