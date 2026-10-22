@@ -47,3 +47,10 @@ cv_list("presentations", "ja", style = "numbered")
 ```
 
 </details>
+
+### Peer Review
+
+```{r}
+#| output: asis
+cv_list("reviews", "ja", style = "bullet", newest_first = FALSE)
+```

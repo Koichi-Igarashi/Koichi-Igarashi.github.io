@@ -107,3 +107,11 @@ presentations:
   - date: 2022-09
     ja: '**五十嵐公一**・和田哲 " イソへラムシは動かない: 対捕食者行動としての不動行動とその個体間変異パターン" 2022年日本プランクトン学会・日本ベントス学会合同大会，オンライン．2022年9月 (口頭)'
     en: '**Koichi Igarashi**, Satoshi Wada "*Cleantiella isopus* stays still: immobility as an anti-predator behavior and its patterns of individual variation", 2022 Joint Meeting of the Plankton Society of Japan and the Japanese Association of Benthology, online, Sep 2022 (oral, in Japanese).'  # review
+
+# Journals reviewed for, listed in file order (no date needed).
+# Add a count when there is more than one review, e.g. "*Oecologia* (×2)".
+reviews:
+  - ja: "*Oecologia*"
+    en: "*Oecologia*"
+  - ja: "*Ethology Ecology & Evolution*"
+    en: "*Ethology Ecology & Evolution*"

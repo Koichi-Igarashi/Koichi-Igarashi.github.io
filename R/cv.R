@@ -1,4 +1,4 @@
-# News, grants, awards and presentations from data/cv.yml, rendered as
+# News, grants, awards, presentations and peer review from data/cv.yml, rendered as
 # Markdown lists for the Japanese (`ja`) or English (`en`) pages.
 # Use inside a chunk with `#| output: asis`.
 
@@ -13,7 +13,9 @@ cv_items <- function(section, lang = c("ja", "en"), newest_first = TRUE, path = 
     stop("Section '", section, "' not found in ", path, call. = FALSE)
   }
   items <- Filter(function(item) !is.null(item[[lang]]) && nzchar(item[[lang]]), items)
-  dates <- vapply(items, function(item) as.character(item$date), character(1))
+  dates <- vapply(items, function(item) {
+    if (is.null(item$date)) "" else as.character(item$date)
+  }, character(1))
   # order() keeps the file order for items with the same date
   items[order(dates, decreasing = newest_first)]
 }
