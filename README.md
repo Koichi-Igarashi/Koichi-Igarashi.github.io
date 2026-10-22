@@ -6,7 +6,7 @@ Built with Quarto and babelquarto; deployed to GitHub Pages by `.github/workflow
 ## Update
 
 - News, grants, awards, presentations: `data/cv.yml`
-- Publications: `data/publications.yml` (PDFs in `papers/` or external URLs); citation counts are fetched from Google Scholar at every build (weekly rebuild) via SerpApi (repository secret `SERPAPI_KEY`, because Scholar blocks GitHub's servers), with the last saved values in `data/citations.yml`
+- Publications: `data/publications.yml` (PDFs in `papers/` or external URLs); citation counts are fetched from Google Scholar at every build (weekly rebuild), with the last saved values in `data/citations.yml`
 - Pages: `index.qmd`, `achievements/index.qmd` (English: `*.en.qmd`); menus: `_quarto-ja.yml`, `_quarto-en.yml`
 
 ## Build locally

@@ -79,14 +79,8 @@ jobs:
           fi
           echo "Site URL: $actual"
 
-      # Citation counts: Google Scholar blocks GitHub's servers, so they are
-      # read through SerpApi when the SERPAPI_KEY secret is set
-      # (Settings -> Secrets and variables -> Actions). Without it the
-      # counts saved in data/citations.yml are shown.
       - name: Build website (Japanese + English)
         run: Rscript scripts/build.R
-        env:
-          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
 
       - name: Check generated site
         run: Rscript scripts/check_site.R
