@@ -1,0 +1,81 @@
+# Build the bilingual website (Japanese + English) and deploy it to GitHub Pages.
+#
+# - push to main      -> build + deploy
+# - pull request      -> build + checks only (no deploy)
+# - manual run        -> Actions tab -> "Build and deploy website" -> Run workflow
+#
+# One-time setup: Settings -> Pages -> Build and deployment -> Source: "GitHub Actions".
+
+name: Build and deploy website
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  # Pinned tool versions (update deliberately, then check the build)
+  QUARTO_VERSION: "1.10.19"
+  R_VERSION: "4.6.1"
+  LANG: C.UTF-8
+  LC_ALL: C.UTF-8
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: ${{ env.QUARTO_VERSION }}
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: ${{ env.R_VERSION }}
+          use-public-rspm: true
+
+      - name: Cache R packages
+        uses: actions/cache@v6
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: r-pkgs-${{ runner.os }}-${{ env.R_VERSION }}-${{ hashFiles('scripts/install_deps.R') }}
+
+      - name: Install R packages
+        run: Rscript scripts/install_deps.R
+
+      - name: Build website (Japanese + English)
+        run: Rscript scripts/build.R
+
+      - name: Check generated site
+        run: Rscript scripts/check_site.R
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -1,0 +1,25 @@
+# Used to generate Schema.org "Person" structured data (JSON-LD) on the
+# home pages (see scripts/postprocess_site.R). Keep in sync with the
+# profile shown on index.qmd / index.en.qmd.
+name:
+  en: "Koichi Igarashi"
+  ja: "五十嵐公一"
+job_title:
+  en: "Doctoral student, JSPS Research Fellow (DC1)"
+  ja: "博士課程学生・日本学術振興会特別研究員（DC1）"
+affiliation:
+  en: "Graduate School of Fisheries Sciences, Hokkaido University"
+  ja: "北海道大学大学院水産科学院"
+university:
+  en: "Hokkaido University"
+  ja: "北海道大学"
+university_url: "https://www.hokudai.ac.jp/"
+knows_about:
+  en: ["Behavioral ecology", "Predator–prey interactions", "Anti-predator behavior", "Marine isopods", "Natural history"]
+  ja: ["行動生態学", "捕食者–被食者相互作用", "対捕食者行動", "海産等脚類", "自然史"]
+same_as:
+  - "https://orcid.org/0000-0002-3537-9239"
+  - "https://researchmap.jp/igapijie"
+  - "https://scholar.google.com/citations?user=AEWO65QAAAAJ"
+  - "https://www.researchgate.net/profile/Koichi-Igarashi-3"
+  - "https://twitter.com/igapije"
