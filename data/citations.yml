@@ -3,6 +3,6 @@
 # fine to edit by hand. The website build never contacts Google Scholar, so
 # builds are reproducible and do not fail when Scholar blocks requests.
 source: "Google Scholar (AEWO65QAAAAJ)"
-updated: "migrated from the previous Scholar cache (data/publications_scholar.yml)"
+updated: "2026-10-22"
 counts:
-  igarashi2024jmba: 5
+  igarashi2024jmba: 6
