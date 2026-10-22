@@ -1,7 +1,7 @@
 # 旧 Quarto Pub サイトの転送ページ
 
 旧サイト <https://igapipy.quarto.pub/koichi-igarashi/> の各ページを，新サイト
-<https://koichi-igarashi.github.io/website/> の **同じページ** へ転送するための小さな Quarto プロジェクトです．
+<https://koichi-igarashi.github.io/> の **同じページ** へ転送するための小さな Quarto プロジェクトです．
 
 ## なぜこの方式か
 
@@ -16,12 +16,12 @@
 
 | 旧URL | 新URL |
 |---|---|
-| `/koichi-igarashi/` | `/website/` |
-| `/koichi-igarashi/about.html` | `/website/`（Research は新サイトでは非公開のためホームへ） |
-| `/koichi-igarashi/achievements.html` | `/website/achievements.html` |
-| `/koichi-igarashi/posts.html` | `/website/`（Posts は非公開のためホームへ） |
-| `/koichi-igarashi/english.html` | `/website/en/` |
-| `/koichi-igarashi/posts/test/` | `/website/`（同上） |
+| `igapipy.quarto.pub/koichi-igarashi/` | `koichi-igarashi.github.io/` |
+| `…/about.html` | `koichi-igarashi.github.io/`（Research は新サイトでは非公開のためホームへ） |
+| `…/achievements.html` | `koichi-igarashi.github.io/achievements/` |
+| `…/posts.html` | `koichi-igarashi.github.io/`（Posts は非公開のためホームへ） |
+| `…/english.html` | `koichi-igarashi.github.io/en/` |
+| `…/posts/test/` | `koichi-igarashi.github.io/`（同上） |
 
 非公開ページをホームへ転送した旧URLは，Google では「ソフト404」扱いになり，やがて検索結果から外れます（非公開にするという意図どおり）．
 Research / Posts を新サイトで再公開する場合は，`about.qmd` などの `redirect-path` を元のページ（`about.html` 等）に戻してから公開してください．
@@ -38,7 +38,7 @@ Posit の告知では，Quarto Pub への **公開（更新）は 2026-12-31 に
 **前提：新サイトが公開済みで，全ページが表示できること**（[../docs/migration-guide.md](../docs/migration-guide.md) の手順 1〜3）．
 新サイトが表示できない状態で転送を公開すると，旧サイトの訪問者も検索エンジンも行き場を失います．
 
-1. 新サイトのURLを確認し，`_quarto.yml` の `new-site-url` が一致していることを確認（既定: `https://koichi-igarashi.github.io/website`）．
+1. 新サイトのURLを確認し，`_quarto.yml` の `new-site-url` が一致していることを確認（既定: `https://koichi-igarashi.github.io`）．
    URLを独自ドメイン等に変える予定があるなら，**変更後のURLで** 転送を公開してください（2回目の変更はできません）．
 2. 手元のPC（Quarto Pub にログインできる環境）で：
 

@@ -6,10 +6,9 @@
 #   - replaces babelquarto's hreflang links (which point to non-existent
 #     `*.en.html` files on websites) with correct ja / en / x-default links,
 #     only when the translated page really exists,
-#   - replaces babelquarto's language drop-down with a one-click
-#     "English" / "日本語" link that opens the same page in the other
-#     language (or the other language's home page if there is no
-#     translation),
+#   - replaces babelquarto's language drop-down with a JP / EN toggle that
+#     opens the same page in the other language (or the other language's
+#     home page if there is no translation),
 #   - adds Schema.org Person data (JSON-LD) to the two home pages,
 #   - marks the 404 page as noindex.
 # It then rewrites sitemap.xml with the canonical URLs and writes robots.txt.
@@ -19,7 +18,8 @@
 main_language <- "ja"
 other_language <- "en"
 
-language_names <- c(ja = "日本語", en = "English")
+# Labels of the JP / EN language toggle in the navbar
+toggle_labels <- c(ja = "JP", en = "EN")
 og_locales <- c(ja = "ja_JP", en = "en_US")
 
 page_language <- function(rel_path) {
@@ -114,43 +114,51 @@ language_switch_item <- function(html, rel_path, site_root, site_url) {
     target <- home_path(target_lang)
   }
 
-  navbar <- xml2::xml_find_first(html, "//div[@id='navbarCollapse']")
-  if (inherits(navbar, "xml_missing")) {
+  container <- xml2::xml_find_first(html, "//div[contains(@class, 'navbar-container')]")
+  if (inherits(container, "xml_missing")) {
     return(invisible())
   }
 
-  # babelquarto's drop-down (we keep our own one-click link instead)
+  # babelquarto's drop-down is replaced by our own toggle
   remove_nodes(html, "//li[.//*[@id='languages-links-parent']]")
   remove_nodes(html, "//*[@id='languages-links-parent']")
-  remove_nodes(html, "//ul[@id='language-switch-nav']")
+  remove_nodes(html, "//*[@id='language-switch-nav']")
+  remove_nodes(html, "//*[@id='language-toggle-container']")
 
-  quarto_tools <- xml2::xml_find_first(navbar, "./div[contains(@class, 'quarto-navbar-tools')]")
-  ul <- if (inherits(quarto_tools, "xml_missing")) {
-    xml2::xml_add_child(navbar, "ul")
+  # Outside the collapsible menu, so it stays visible on phones too
+  anchor <- xml2::xml_find_first(container, "./div[@id='quarto-search'] | ./button[contains(@class, 'navbar-toggler')]")
+  wrapper <- if (inherits(anchor, "xml_missing")) {
+    xml2::xml_add_child(container, "div")
   } else {
-    xml2::xml_add_sibling(quarto_tools, "ul", .where = "before")
+    xml2::xml_add_sibling(anchor, "div", .where = "before")
   }
-  xml2::xml_set_attrs(ul, c(class = "navbar-nav navbar-nav-scroll ms-auto", id = "language-switch-nav"))
-  li <- xml2::xml_add_child(ul, "li", class = "nav-item")
-  title <- if (has_translation) {
+  xml2::xml_set_attrs(wrapper, c(id = "language-toggle-container", class = "language-toggle-container"))
+
+  label <- if (has_translation) {
     if (target_lang == "en") "Read this page in English" else "このページを日本語で読む"
   } else {
     if (target_lang == "en") "English version (home)" else "日本語版（ホーム）"
   }
   a <- xml2::xml_add_child(
-    li, "a",
-    class = "nav-link language-switch",
+    wrapper, "a",
+    class = "language-toggle",
     id = "language-switch",
     # the 404 page is served at arbitrary URLs, so it needs an absolute path
     # (same prefix that Quarto used for the page's own links)
     href = if (rel_path == "404.html") paste0(absolute_prefix(html, site_url), target) else relative_href(rel_path, target),
     hreflang = target_lang,
     lang = target_lang,
-    title = title
+    title = label,
+    `aria-label` = label
   )
-  xml2::xml_add_child(a, "i", class = "bi bi-globe2", `aria-hidden` = "true")
-  span <- xml2::xml_add_child(a, "span", class = "menu-text")
-  xml2::xml_text(span) <- paste0(" ", language_names[[target_lang]])
+  for (code in c(main_language, other_language)) {
+    option <- xml2::xml_add_child(
+      a, "span",
+      class = paste("language-toggle-option", if (code == lang) "is-active" else ""),
+      `aria-hidden` = "true"
+    )
+    xml2::xml_text(option) <- toggle_labels[[code]]
+  }
   invisible()
 }
 

@@ -205,9 +205,75 @@ body {
   display: none;
 }
 
-/* Language switch in the navbar (added by scripts/postprocess_site.R) */
-.language-switch .bi {
-  margin-right: 0.15rem;
+/* JP / EN toggle in the navbar (added by scripts/postprocess_site.R).
+   The highlighted side is the current language; clicking switches. */
+.language-toggle-container {
+  align-items: center;
+  display: flex;
+  margin-left: 0.4rem;
+  order: 3;
+}
+
+/* Desktop: right side of the navbar, just before the search icon */
+@media (min-width: 992px) {
+  .language-toggle-container {
+    margin-left: 0.75rem;
+    order: 950;
+  }
+}
+
+.language-toggle {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  padding: 2px;
+  text-decoration: none;
+}
+
+.language-toggle-option {
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.28rem 0.5rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.language-toggle-option.is-active {
+  background: rgba(255, 255, 255, 0.92);
+  color: #2c3e50;
+}
+
+.language-toggle:hover .language-toggle-option:not(.is-active),
+.language-toggle:focus-visible .language-toggle-option:not(.is-active) {
+  color: #fff;
+}
+
+.language-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Phones: a little more compact so that brand, toggle and search fit on one line */
+@media (max-width: 991.98px) {
+  .language-toggle-option {
+    padding: 0.26rem 0.42rem;
+  }
+}
+
+@media (max-width: 400px) {
+  #quarto-header .navbar {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  .navbar > .navbar-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 }
 
 .news-container:focus-visible {

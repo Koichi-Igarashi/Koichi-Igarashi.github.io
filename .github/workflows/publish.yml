@@ -4,7 +4,10 @@
 # - pull request      -> build + checks only (no deploy)
 # - manual run        -> Actions tab -> "Build and deploy website" -> Run workflow
 #
-# One-time setup: Settings -> Pages -> Build and deployment -> Source: "GitHub Actions".
+# One-time setup:
+#   1. Repository name "Koichi-Igarashi.github.io" (so the site is served at
+#      https://koichi-igarashi.github.io/, matching site-url in _quarto.yml)
+#   2. Settings -> Pages -> Build and deployment -> Source: "GitHub Actions"
 
 name: Build and deploy website
 
@@ -50,6 +53,27 @@ jobs:
 
       - name: Install R packages
         run: Rscript scripts/install_deps.R
+
+      # site-url in _quarto.yml must be the address GitHub Pages serves this
+      # repository at, otherwise canonical URLs and the sitemap would be wrong.
+      # (Warning only on pull requests; blocks deployment on main.)
+      - name: Check site URL matches this repository
+        run: |
+          owner="${GITHUB_REPOSITORY%%/*}"; owner="${owner,,}"
+          repo="${GITHUB_REPOSITORY#*/}"
+          if [ -f CNAME ]; then
+            expected="https://$(tr -d '[:space:]' < CNAME)"
+          elif [ "${repo,,}" = "${owner}.github.io" ]; then
+            expected="https://${owner}.github.io"
+          else
+            expected="https://${owner}.github.io/${repo}"
+          fi
+          actual="$(Rscript -e 'cat(sub("/$", "", yaml::read_yaml("_quarto.yml")$website$`site-url`))')"
+          if [ "$expected" != "$actual" ]; then
+            msg="site-url in _quarto.yml is ${actual}, but GitHub Pages serves this repository at ${expected}. Rename the repository or change site-url (see docs/migration-guide.md)."
+            if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then echo "::warning::$msg"; else echo "::error::$msg"; exit 1; fi
+          fi
+          echo "Site URL: $actual"
 
       - name: Build website (Japanese + English)
         run: Rscript scripts/build.R

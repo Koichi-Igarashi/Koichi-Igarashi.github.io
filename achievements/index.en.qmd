@@ -19,7 +19,7 @@ Latest update - `r format(Sys.time(), " %Y/%m/%d")`
 ### Publications
 
 ```{r}
-publication_table(format_publications("en"), "en")
+publication_table(format_publications("en", site_root = "../../"), "en")
 ```
 
 ### Grants

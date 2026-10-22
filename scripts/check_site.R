@@ -9,15 +9,15 @@ config <- yaml::read_yaml("_quarto.yml")
 site_url <- sub("/$", "", Sys.getenv("BABELQUARTO_CI_URL", config$website$`site-url`))
 if ("--local" %in% commandArgs(trailingOnly = TRUE)) site_url <- "http://localhost:4321"
 # Quarto writes absolute paths on the 404 page using site-url from
-# _quarto.yml: "/website/" for https://user.github.io/website
+# _quarto.yml: "/" for https://user.github.io, "/repo/" for a project site
 site_path <- paste0(sub("/$", "", sub("^https?://[^/]+", "", config$website$`site-url`)), "/")
 
 problems <- character()
 problem <- function(...) problems <<- c(problems, paste0(...))
 
 expected_pages <- c(
-  "index.html", "achievements.html", "404.html", "english.html",
-  "en/index.html", "en/achievements.html"
+  "index.html", "achievements/index.html", "404.html",
+  "en/index.html", "en/achievements/index.html"
 )
 for (page in expected_pages) {
   if (!file.exists(file.path(site_root, page))) problem("missing page: ", page)

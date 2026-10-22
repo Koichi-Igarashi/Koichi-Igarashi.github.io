@@ -10,5 +10,5 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: achievements.qmd
+      - href: achievements/index.qmd
         text: Achievements

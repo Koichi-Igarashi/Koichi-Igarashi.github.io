@@ -5,7 +5,7 @@
 # canonical link to the expected new URL, and the new URL must answer 200.
 set -u
 OLD="${OLD:-https://igapipy.quarto.pub/koichi-igarashi}"
-NEW="${NEW:-https://koichi-igarashi.github.io/website}"
+NEW="${NEW:-https://koichi-igarashi.github.io}"
 fail=0
 while read -r old new; do
   html=$(curl -fsSL "$OLD/$old") || { echo "✗ $OLD/$old could not be fetched"; fail=1; continue; }
@@ -23,7 +23,7 @@ while read -r old new; do
 done <<'LIST'
  
 about.html 
-achievements.html achievements.html
+achievements.html achievements/
 posts.html 
 english.html en/
 posts/test/ 

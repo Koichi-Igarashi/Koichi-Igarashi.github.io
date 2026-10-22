@@ -8,7 +8,7 @@ project:
   output-dir: _site
 
 # The new site (no trailing slash). Must match website.site-url in ../_quarto.yml.
-new-site-url: "https://koichi-igarashi.github.io/website"
+new-site-url: "https://koichi-igarashi.github.io"
 
 format:
   html:

@@ -4,7 +4,7 @@
 [babelquarto](https://docs.ropensci.org/babelquarto/) で日本語（メイン）・英語の2言語を生成，
 GitHub Actions で GitHub Pages に自動公開しています．
 
-- 公開URL: <https://koichi-igarashi.github.io/website/> （英語版: `/en/`）
+- 公開URL: <https://koichi-igarashi.github.io/> （英語版: `/en/`）※リポジトリ名を `Koichi-Igarashi.github.io` にする必要あり（[docs/migration-guide.md](docs/migration-guide.md)）
 - 旧サイト（Quarto Pub）: <https://igapipy.quarto.pub/koichi-igarashi/> → 新サイトへ転送（[legacy-redirect/README.md](legacy-redirect/README.md)）
 - 移行の経緯・Search Console の手順: [docs/migration-guide.md](docs/migration-guide.md)
 - 翻訳のレビュー対象一覧: [docs/translation-review.md](docs/translation-review.md)
@@ -104,8 +104,10 @@ Rscript scripts/check_site.R --local    # リンク切れ・SEOタグなどの�
 ## 仕組み
 
 ```
-*.qmd            日本語ページ（サイトのルートに出力）
-*.en.qmd         英語ページ（_site/en/ に出力）。ファイル名で日英が対応
+index.qmd        日本語トップ（/）          index.en.qmd  英語トップ（/en/）
+achievements/index.qmd  （/achievements/）  achievements/index.en.qmd （/en/achievements/）
+                 ※ 英語版は同じ場所に name.en.qmd を置く（ファイル名で日英が対応）
+                 ※ ページを増やすときは フォルダ/index.qmd にすると URL が /フォルダ/ になる
 _quarto.yml      共通設定（サイトURL・テーマ・babelquarto の設定）
 _quarto-ja.yml   日本語版のメニュー     ← ナビバーは必ずこちらに書く
 _quarto-en.yml   英語版のメニュー       （_quarto.yml に書くと日英が重複表示される）
@@ -113,7 +115,7 @@ data/            論文・ニュース・業績・プロフィール（日英共
 R/               データから表・リストを作る R コード
 scripts/
   build.R            ビルド本体（babelquarto → 後処理）
-  postprocess_site.R canonical, hreflang, og:url, 言語切替リンク, JSON-LD, sitemap.xml, robots.txt
+  postprocess_site.R canonical, hreflang, og:url, JP/EN トグル, JSON-LD, sitemap.xml, robots.txt
   check_site.R       生成サイトの自動チェック（CI でも実行）
   install_deps.R     R パッケージの導入（バージョン固定）
   update_citations.R Google Scholar から被引用数を取得（任意・手動）
@@ -126,7 +128,8 @@ images/           画像（images/web/ がサイト用に圧縮済み．images/ 
 
 `.github/workflows/publish.yml`
 
-- `main` への push → ビルド → チェック → GitHub Pages へ公開
+- `main` への push → URL確認 → ビルド → チェック → GitHub Pages へ公開
+  （`_quarto.yml` の `site-url` とリポジトリの公開URLが一致しないと公開を止めます）
 - プルリクエスト → ビルドとチェックのみ（公開しない）．生成サイトは Artifacts からダウンロード可
 - 手動実行: Actions タブ → *Build and deploy website* → *Run workflow*
 

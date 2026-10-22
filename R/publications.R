@@ -55,9 +55,10 @@ is_external_url <- function(url) {
   grepl("^[a-z][a-z0-9+.-]*:", url, ignore.case = TRUE)
 }
 
-# Files stored in this repository (e.g. "papers/x.pdf") live only in the
-# Japanese (root) site. English pages are one level deeper (/en/), so they
-# link to the same file with a "../" prefix instead of keeping a duplicate.
+# Files stored in this repository (e.g. "papers/x.pdf") are published once,
+# at the root of the Japanese site. `root_prefix` is the relative path from
+# the page to that root ("../" for /achievements/, "../../" for
+# /en/achievements/), so both languages link to the same file.
 resolve_url <- function(url, root_prefix) {
   if (url == "" || is_external_url(url) || startsWith(url, "/")) {
     return(url)
@@ -161,12 +162,13 @@ read_publications <- function(path = "data/publications.yml") {
 # Returns one row per publication, newest first.
 format_publications <- function(
   lang = c("ja", "en"),
+  site_root = "",
   path = "data/publications.yml",
   citations_path = "data/citations.yml"
 ) {
   lang <- match.arg(lang)
   labels <- publication_labels[[lang]]
-  root_prefix <- if (lang == "ja") "" else "../"
+  root_prefix <- site_root
 
   data <- read_publications(path)
   pubs <- data$publications %||% list()

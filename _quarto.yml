@@ -1,5 +1,8 @@
 project:
   type: website
+  # R code always runs from the project root (pages live in sub-folders,
+  # e.g. achievements/index.qmd -> /achievements/)
+  execute-dir: project
   post-render:
     - scripts/cleanup_publish_files.R
   render:
@@ -17,9 +20,10 @@ project:
 # Quarto concatenates lists across profiles, so a navbar here would be
 # duplicated in every language.
 website:
-  # Public URL of the site (no trailing slash). Change this one line if the
-  # site moves, e.g. to https://koichi-igarashi.github.io or a custom domain.
-  site-url: "https://koichi-igarashi.github.io/website"
+  # Public URL of the site (no trailing slash). The repository must be named
+  # Koichi-Igarashi.github.io for this URL (see docs/migration-guide.md).
+  # Also update legacy-redirect/_quarto.yml if this changes.
+  site-url: "https://koichi-igarashi.github.io"
   google-analytics: "G-HCK5G6DBKK"
   title: "Koichi Igarashi"
   description: "北海道大学大学院水産科学院の大学院生・五十嵐公一（Koichi Igarashi）の研究者ウェブサイトです．海産等脚類を対象に，捕食者–被食者相互作用などの行動生態学を研究しています．"
@@ -36,7 +40,8 @@ format:
     css: styles.css
     include-after-body:
       - scripts/pdf-download-tracking.html
-    mainfont: Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans
+    # Japanese fallbacks for Windows (Yu Gothic, Meiryo) and Android/Linux (Noto Sans JP)
+    mainfont: 'Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans, "Yu Gothic Medium", "Yu Gothic", YuGothic, Meiryo, "Noto Sans JP", "Noto Sans CJK JP", sans-serif'
 
 lang: ja
 
