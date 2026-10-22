@@ -1,6 +1,6 @@
 # Citation counts and Google Scholar paper pages, keyed by publication `id`.
-# Refreshed from Google Scholar at every build (scripts/build.R); these saved
-# values are shown when Scholar does not answer. Fine to edit by hand.
+# Refresh on your own computer: Rscript scripts/update_citations.R, then commit.
+# (Google Scholar blocks GitHub's servers.) Fine to edit by hand.
 source: "Google Scholar (AEWO65QAAAAJ)"
 updated: "2026-10-22"
 counts:

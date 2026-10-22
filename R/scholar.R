@@ -2,8 +2,9 @@
 #
 # The profile page is parsed the same way as the CRAN `scholar` package
 # (rows `tr.gsc_a_tr`, title `a.gsc_a_at`, citations `a.gsc_a_ac`), using
-# only xml2. Google Scholar sometimes blocks automated requests; callers then
-# fall back to what is saved in data/citations.yml.
+# only xml2. Google Scholar blocks requests from GitHub's servers (HTTP 403),
+# so on GitHub Actions the values saved in data/citations.yml are used; run
+# `Rscript scripts/update_citations.R` on your own computer to refresh them.
 
 scholar_profile_id <- "AEWO65QAAAAJ"
 scholar_base_url <- "https://scholar.google.com"
@@ -77,9 +78,9 @@ match_scholar_profile <- function(pubs, scholar) {
 `%||%` <- function(x, y) if (is.null(x) || length(x) == 0 || identical(x, "")) y else x
 
 # Refresh data/citations.yml from Google Scholar. Called by scripts/build.R
-# before rendering, so both languages show the same numbers. When Scholar
-# does not answer, the file is left as it is (the last saved values are
-# shown) and the build continues. Set SKIP_SCHOLAR=true to skip the request.
+# before rendering (so a local build also refreshes it) and by
+# scripts/update_citations.R. When Scholar does not answer, the file is left
+# as it is (the last saved values are shown) and the build continues. Set SKIP_SCHOLAR=true to skip the request.
 update_citations_file <- function(
   publications_path = "data/publications.yml",
   citations_path = "data/citations.yml",
@@ -112,8 +113,8 @@ update_citations_file <- function(
   writeLines(
     c(
       "# Citation counts and Google Scholar paper pages, keyed by publication `id`.",
-      "# Refreshed from Google Scholar at every build (scripts/build.R); these saved",
-      "# values are shown when Scholar does not answer. Fine to edit by hand.",
+      "# Refresh on your own computer: Rscript scripts/update_citations.R, then commit.",
+      "# (Google Scholar blocks GitHub's servers.) Fine to edit by hand.",
       yaml::as.yaml(list(
         source = paste0("Google Scholar (", scholar_id, ")"),
         updated = format(Sys.Date()),
