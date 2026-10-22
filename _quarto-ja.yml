@@ -10,9 +10,5 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: about.qmd
-        text: Research
       - href: achievements.qmd
         text: Achievements
-      - href: posts.qmd
-        text: Posts

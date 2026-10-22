@@ -32,9 +32,9 @@ B または C にする場合は，`_quarto.yml` の `site-url` と `legacy-redi
 公開URLで次を確認します（スマートフォンでも）：
 
 - [ ] 日本語トップ `/website/` と英語トップ `/website/en/` が表示される
-- [ ] 右上の「English」/「日本語」で同じページの別言語版に移動できる（Research, Achievements, Posts も）
+- [ ] 右上の「English」/「日本語」で同じページの別言語版に移動できる（Achievements も）
 - [ ] Achievements の PDF アイコン・DOI リンク・HUSCAP リンクが開ける
-- [ ] Research ページの画像が表示される
+- [ ] Research / Posts は非公開（メニューになく，`/website/about.html` 等は 404）
 - [ ] 存在しないURL（例 `/website/xxx`）で 404 ページが表示され，メニューのリンクが機能する
 - [ ] `/website/sitemap.xml` に日英両方のページがある
 - [ ] 旧URL互換の `/website/english.html` が `/website/en/` に移動する

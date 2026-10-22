@@ -28,7 +28,7 @@
 | イソヘラムシは動かない: 対捕食者行動としての不動行動と複数種の捕食者への反応 | *Cleantiella isopus* stays still: immobility as an anti-predator behavior and responses to multiple predator species | イソヘラムシ = *Cleantiella isopus*（JMBA 論文に基づく） |
 | イソヘラムシは不動行動で魚類捕食者からの捕食を回避する | *Cleantiella isopus* avoids predation by fish through immobility | |
 | …不動行動とその個体間変異パターン | …and its patterns of individual variation | |
-| 激しい気象イベントの進化・生態的帰結 | Evolutionary and ecological consequences of extreme weather events | Research ページ |
+| 激しい気象イベントの進化・生態的帰結 | Evolutionary and ecological consequences of extreme weather events | Research ページ（現在は非公開．再公開時に確認） |
 | 人間活動が生物間相互作用に及ぼす影響 | Effects of human activities on biotic interactions | 同上 |
 | 科学的自然史 | Scientific natural history | 同上 |
 

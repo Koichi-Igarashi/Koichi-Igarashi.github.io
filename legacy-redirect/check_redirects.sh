@@ -22,10 +22,10 @@ while read -r old new; do
   echo "✓ $OLD/$old -> $NEW/$new"
 done <<'LIST'
  
-about.html about.html
+about.html 
 achievements.html achievements.html
-posts.html posts.html
+posts.html 
 english.html en/
-posts/test/ posts/test/
+posts/test/ 
 LIST
 exit $fail

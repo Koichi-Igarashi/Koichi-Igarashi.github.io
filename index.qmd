@@ -1,7 +1,7 @@
 ---
 title: ""
 pagetitle: "五十嵐公一"
-description: "北海道大学大学院水産科学院の大学院生・五十嵐公一（Koichi Igarashi）の研究者ウェブサイトです．研究内容，業績，ニュースを掲載しています．"
+description: "北海道大学大学院水産科学院の大学院生・五十嵐公一（Koichi Igarashi）の研究者ウェブサイトです．業績やニュースを掲載しています．"
 toc: false
 image: images/og-image.jpg
 engine: knitr

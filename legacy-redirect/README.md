@@ -17,11 +17,14 @@
 | 旧URL | 新URL |
 |---|---|
 | `/koichi-igarashi/` | `/website/` |
-| `/koichi-igarashi/about.html` | `/website/about.html` |
+| `/koichi-igarashi/about.html` | `/website/`（Research は新サイトでは非公開のためホームへ） |
 | `/koichi-igarashi/achievements.html` | `/website/achievements.html` |
-| `/koichi-igarashi/posts.html` | `/website/posts.html` |
+| `/koichi-igarashi/posts.html` | `/website/`（Posts は非公開のためホームへ） |
 | `/koichi-igarashi/english.html` | `/website/en/` |
-| `/koichi-igarashi/posts/test/` | `/website/posts/test/` |
+| `/koichi-igarashi/posts/test/` | `/website/`（同上） |
+
+非公開ページをホームへ転送した旧URLは，Google では「ソフト404」扱いになり，やがて検索結果から外れます（非公開にするという意図どおり）．
+Research / Posts を新サイトで再公開する場合は，`about.qmd` などの `redirect-path` を元のページ（`about.html` 等）に戻してから公開してください．
 
 ## ⚠️ 期限：2026年12月31日まで
 

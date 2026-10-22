@@ -20,8 +20,7 @@ GitHub Actions で GitHub Pages に自動公開しています．
 | 論文を追加・更新 | `data/publications.yml`（下記） |
 | 助成・受賞・発表を追加 | `data/cv.yml` の `grants:` / `awards:` / `presentations:` |
 | 被引用数を更新 | `Rscript scripts/update_citations.R`（または `data/citations.yml` を手で編集） |
-| 研究ページの文章 | `about.qmd`（日本語）と `about.en.qmd`（英語） |
-| ブログ記事を追加 | `posts/<名前>/index.qmd` を作成し，`_quarto.yml` の `render:` と `posts.qmd` の `contents:` に追加 |
+| Research / Posts ページを公開する | 現在は非公開（ソースは `about*.qmd`, `posts*.qmd`, `posts/` に保存）．`_quarto.yml` の `render:` の除外行を消し，`_quarto-ja.yml` / `_quarto-en.yml` のメニューに追加，`scripts/check_site.R` の `unpublished_pages` を更新 |
 | メニュー（ナビバー） | `_quarto-ja.yml`（日本語版）と `_quarto-en.yml`（英語版） |
 | サイト共通の説明文・URL | `_quarto.yml` |
 

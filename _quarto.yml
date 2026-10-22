@@ -4,9 +4,13 @@ project:
     - scripts/cleanup_publish_files.R
   render:
     - "*.qmd"
-    - "posts/test/index.qmd"
-    - "!posts/naturalhist/index.qmd"
-    - "!posts/teisai/index.qmd"
+    # Research (about*.qmd) and Posts (posts*.qmd, posts/) are kept in the
+    # repository but not published. To publish them again, remove the two
+    # lines below, add the pages back to the navbars in _quarto-ja.yml /
+    # _quarto-en.yml and list the posts to publish (e.g. "posts/test/index.qmd").
+    - "!about.qmd"
+    - "!posts.qmd"
+    - "!posts/"
     - "!legacy-redirect/"
 
 # Navigation menus live in _quarto-ja.yml and _quarto-en.yml.

@@ -16,12 +16,16 @@ problems <- character()
 problem <- function(...) problems <<- c(problems, paste0(...))
 
 expected_pages <- c(
-  "index.html", "about.html", "achievements.html", "posts.html", "404.html",
-  "english.html", "posts/test/index.html",
-  "en/index.html", "en/about.html", "en/achievements.html", "en/posts.html"
+  "index.html", "achievements.html", "404.html", "english.html",
+  "en/index.html", "en/achievements.html"
 )
 for (page in expected_pages) {
   if (!file.exists(file.path(site_root, page))) problem("missing page: ", page)
+}
+# Research and Posts are intentionally not published (see _quarto.yml)
+unpublished_pages <- c("about.html", "posts.html", "posts/test/index.html", "en/about.html", "en/posts.html")
+for (page in unpublished_pages) {
+  if (file.exists(file.path(site_root, page))) problem("page should not be published: ", page)
 }
 
 # public URL -> file in _site

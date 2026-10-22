@@ -1,7 +1,7 @@
 ---
 title: ""
 pagetitle: "Home"
-description: "Personal website of Koichi Igarashi (五十嵐公一), a graduate student at the Graduate School of Fisheries Sciences, Hokkaido University: research, publications and news."
+description: "Personal website of Koichi Igarashi (五十嵐公一), a graduate student at the Graduate School of Fisheries Sciences, Hokkaido University: publications, grants, presentations and news."
 toc: false
 image: images/og-image.jpg
 engine: knitr
