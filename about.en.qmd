@@ -44,4 +44,4 @@ I am interested in the following research areas and their intersections.
 
 :::
 
-Latest update - `r format(Sys.time(), " %Y/%m/%d")`
+Last updated: `r format(Sys.time(), "%Y-%m-%d", tz = "Asia/Tokyo")`

@@ -14,7 +14,7 @@ source("R/publications.R")
 source("R/cv.R")
 ```
 
-Latest update - `r format(Sys.time(), " %Y/%m/%d")`
+Last updated: `r format(Sys.time(), "%Y-%m-%d", tz = "Asia/Tokyo")`
 
 ### Publications
 
