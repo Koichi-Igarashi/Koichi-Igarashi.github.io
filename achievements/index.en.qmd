@@ -33,7 +33,7 @@ cv_list("grants", "en", style = "numbered")
 
 ```{r}
 #| output: asis
-cv_list("awards", "en", style = "bullet", newest_first = FALSE)
+cv_list("awards", "en", style = "bullet")
 ```
 
 ### Presentations
