@@ -152,6 +152,10 @@ language_switch_item <- function(html, rel_path, site_root, site_url) {
     `aria-label` = label
   )
   for (code in c(main_language, other_language)) {
+    if (code != main_language) {
+      separator <- xml2::xml_add_child(a, "span", class = "language-toggle-separator", `aria-hidden` = "true")
+      xml2::xml_text(separator) <- "/"
+    }
     option <- xml2::xml_add_child(
       a, "span",
       class = paste("language-toggle-option", if (code == lang) "is-active" else ""),
