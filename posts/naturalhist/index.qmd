@@ -7,7 +7,7 @@ draft: true
 engine: knitr
 ---
 
-Latest update - `r format(Sys.time(), " %Y/%m/%d")`
+最終更新：`r format(Sys.time(), "%Y/%m/%d", tz = "Asia/Tokyo")`
 
 私自身の備忘録として，観察ベースの自然史短報を投稿できる雑誌をまとめてみました． 随時更新予定．
 

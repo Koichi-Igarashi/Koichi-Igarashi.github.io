@@ -44,4 +44,4 @@ engine: knitr
 
 :::
 
-Latest update - `r format(Sys.time(), " %Y/%m/%d")`
+最終更新：`r format(Sys.time(), "%Y/%m/%d", tz = "Asia/Tokyo")`

@@ -14,7 +14,7 @@ source("R/publications.R")
 source("R/cv.R")
 ```
 
-Latest update - `r format(Sys.time(), " %Y/%m/%d")`
+最終更新：`r format(Sys.time(), "%Y/%m/%d", tz = "Asia/Tokyo")`
 
 ### Publications
 
@@ -33,7 +33,7 @@ cv_list("grants", "ja", style = "numbered")
 
 ```{r}
 #| output: asis
-cv_list("awards", "ja", style = "bullet", newest_first = FALSE)
+cv_list("awards", "ja", style = "bullet")
 ```
 
 ### Presentations
