@@ -4,7 +4,7 @@
 # Publish (from this folder):  quarto publish quarto-pub
 # See README.md in this folder before publishing.
 project:
-  type: default
+  type: website   # quarto publish only accepts website/book/manuscript projects
   output-dir: _site
 
 # The new site (no trailing slash). Must match website.site-url in ../_quarto.yml.
