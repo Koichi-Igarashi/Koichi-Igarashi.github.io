@@ -7,6 +7,9 @@
 # "# review": translation draft, check official English names.
 
 news:
+  - date: 2026-11-15
+    ja: "Sacramentoで開催されたWestern Society of Naturalists第107回大会でポスター発表を行いました．"
+    en: "Presented a poster at the 107th Annual Meeting of the Western Society of Naturalists in Sacramento."
   - date: 2026-10-31
     ja: "Hawaiʻi Institute of Marine Biologyに5日間滞在し，ラボミーティングで発表を行いました．"
     en: "Stayed at the Hawaiʻi Institute of Marine Biology for five days and gave a talk at a lab meeting."
@@ -86,6 +89,9 @@ awards:
     en: "Mar 2023. Best Poster Award (Behavior), the 70th Annual Meeting of the Ecological Society of Japan"  # review
 
 presentations:
+  - date: 2026-11
+    ja: '**五十嵐公一**・Yusuke Iwaki "Interactions between seagrass wasting disease and herbivores in the surfgrass *Phyllospadix iwatensis* meadows", Western Society of Naturalists 第107回大会, Sacramento, 2026年11月 (ポスター，英語)．'
+    en: '**Koichi Igarashi**, Yusuke Iwaki "Interactions between seagrass wasting disease and herbivores in the surfgrass *Phyllospadix iwatensis* meadows", the 107th Annual Meeting of the Western Society of Naturalists, Sacramento, Nov 2026 (poster).'
   - date: 2026-03
     ja: '**五十嵐公一** "ヘラムシの柔軟な行動防御 ～防御タイミングの意味とは？～", 自由集会「食べられそうになってからが本番？：捕食者との接触後にはたらく多様な防衛戦略」, 第73回日本生態学会大会, 京都, 2026年3月 (口頭)．'
     en: '**Koichi Igarashi** "Flexible behavioral defenses in idoteid isopods: what does the timing of defense mean?", Free session "The real game starts when you are about to be eaten? Diverse defense strategies after contact with predators", the 73rd Annual Meeting of the Ecological Society of Japan, Kyoto, Mar 2026 (oral, in Japanese).'  # review
