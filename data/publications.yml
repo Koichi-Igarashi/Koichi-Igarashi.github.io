@@ -49,11 +49,12 @@ publications:
     authors: [K Igarashi, S Wada]
     title: "Predator-specific deployment of defensive behaviors in the marine isopod *Cleantiella isopus* (Isopoda, Idoteidae): Arched posture against fish and escape against crabs"
     journal: "Zoological Science"
-    status: "Accepted"
-    doi: ""   # TODO: add when the DOI is issued
+    volume: "43"
+    issue: "6"
+    doi: "10.2108/zs260023"
     pdf:
       - url: "papers/ZoolSci_Igarashi_2026.pdf"
-        label: "Accepted manuscript"
+        label: "Published version (open access)"
     data:
       - url: "https://doi.org/10.5281/zenodo.18883199"
 

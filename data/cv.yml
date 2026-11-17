@@ -8,8 +8,8 @@
 
 news:
   - date: 2026-10-31
-    ja: "Hawaiʻi Institute of Marine Biologyに5日間滞在してました．"
-    en: "Visited the Hawaiʻi Institute of Marine Biology for five days."
+    ja: "Hawaiʻi Institute of Marine Biologyに5日間滞在し，ラボミーティングで発表を行いました．"
+    en: "Stayed at the Hawaiʻi Institute of Marine Biology for five days and gave a talk at a lab meeting."
   - date: 2026-06-25
     ja: "Zoological Scienceに主著論文がアクセプトされました．"
     en: "My first-authored paper was accepted in Zoological Science."
@@ -65,16 +65,16 @@ news:
 grants:
   - date: 2026-04
     ja: "公益財団法人 水産無脊椎動物研究所 個別研究助成 2026年4月〜2027年3月 (**研究代表者**)"
-    en: "Individual Research Grant, Research Institute of Marine Invertebrates, Apr 2026–Mar 2027 (**Principal Investigator**)"  # review
+    en: "Individual Research Grant, Research Institute of Marine Invertebrates, Apr 2026–Mar 2027"  # review
   - date: 2025-04
     ja: "令和7年度厚岸湖・別寒辺牛湿原学術研究奨励補助金 2025年4月〜2026年3月 (**研究代表者**)"
-    en: "FY2025 Akkeshi-ko and Bekambeushi Wetland Research Grant, Apr 2025–Mar 2026 (**Principal Investigator**)"  # review
+    en: "FY2025 Akkeshi-ko and Bekambeushi Wetland Research Grant, Apr 2025–Mar 2026"  # review
   - date: 2025-04
     ja: "日本学術振興会特別研究員DC1 2025年4月〜2028年3月"
     en: "JSPS Research Fellowship for Young Scientists (DC1), Apr 2025–Mar 2028"
   - date: 2024-04
     ja: "令和6年度厚岸湖・別寒辺牛湿原学術研究奨励補助金 2024年4月〜2025年3月 (**研究代表者**)"
-    en: "FY2024 Akkeshi-ko and Bekambeushi Wetland Research Grant, Apr 2024–Mar 2025 (**Principal Investigator**)"  # review
+    en: "FY2024 Akkeshi-ko and Bekambeushi Wetland Research Grant, Apr 2024–Mar 2025"  # review
 
 # Awards are listed newest first on the page, like the other sections.
 awards:
